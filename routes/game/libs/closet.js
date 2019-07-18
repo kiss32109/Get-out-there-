@@ -13,7 +13,7 @@ Closet = function(parent){
       		self.closet = [];
       	}
     	}
-      self.closet = Parts.list['default_male'];
+      self.closet = UTILITY.clone(Parts.list['default_male']);
     }
 
 	return self;
