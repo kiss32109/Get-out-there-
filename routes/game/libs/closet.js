@@ -1,3 +1,5 @@
+const UTILITY = require('./utility.js');
+
 Closet = function(parent){
 
     var self = {
@@ -12,7 +14,7 @@ Closet = function(parent){
       	if(self.closet[i].id === Parts.list['default_male']){
       		self.closet = [];
       	}
-    	} 
+    	}
       self.closet = UTILITY.clone(Parts.list['default_male']);
     }
 
