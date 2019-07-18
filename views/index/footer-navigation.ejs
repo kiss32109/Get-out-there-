@@ -1,0 +1,51 @@
+<!-- Bottom Navigation -->
+<nav id="footer" class="navbar navbar-expand-lg fixed-bottom">
+  <div class="container-fluid d-block">
+    <div id="game-control-box" class="text-center w-100">
+        <button id="HOME" onclick="show_login()" type="button" class="btn btn-link mb-2">게임 시작하기</button>
+    </div>
+    <div id="game-page-sliding" class="text-center w-100">
+      <div id="page-tabs">
+        <a href="#" onclick="pageTabs(this.id)" id="HOME" class="col text-secondary active">처음으로</a>
+        <a href="#" onclick="pageTabs(this.id)" id="INFORMATION" class="col text-secondary">게임소개</a>
+        <a href="#" onclick="pageTabs(this.id)" id="EVENT" class="col text-secondary">이벤트</a>
+      </div>
+    </div>
+    <div id="game-detail" class="w-100">
+      <span class="navbar-brand" style="float:left;">하단 네비게이션 바</span>
+      <!-- 로그인 폼 -->
+      <form id="login" class="collapse form-inline">
+        <div class="form-group mb-2">
+          <label  for="email">이메일</label>
+          <input type="text" class="form-control" id="email" placeholder="email@example.com">
+        </div>
+        <div class="form-group mb-2">
+          <label  for="password">패스워드</label>
+          <input type="password" class="form-control" id="password" placeholder="Password">
+        </div>
+        <button id="HOME" type="submit" class="btn btn-link mb-2">로그인</button>
+        <button id="HOME" type="button" onclick="show_registration()" class="btn btn-link mb-2">회원가입</button>
+      </form>
+      <!-- 회원가입 폼 -->
+      <form id="registration" class="collapse form-inline">
+        <div class="form-group mb-2">
+          <label  for="nickname">닉네임</label>
+          <input type="text" class="form-control" id="email" placeholder="게임 내 닉네임">
+        </div>
+        <div class="form-group mb-2">
+          <label  for="email">이메일</label>
+          <input type="text" class="form-control" id="email" placeholder="이메일 기입">
+        </div>
+        <div class="form-group mb-2">
+          <label  for="password">패스워드</label>
+          <input type="password" class="form-control" id="password" placeholder="패스워드 기입">
+        </div>
+        <button id="HOME" type="submit" class="btn btn-link mb-2">가입하기</button>
+        <button id="HOME" type="button" onclick="show_login()" class="btn btn-link mb-2">돌아가기</button>
+      </form>
+      <div id="wrong-password-warnning" class="collapse alert alert-dark" role="alert">
+        알람! 비밀번호가 옳바르지 않습니다.
+      </div>
+    </div>
+  </div>
+</nav>

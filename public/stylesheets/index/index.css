@@ -1,0 +1,154 @@
+
+ /*
+   INDEX PAGE CSS 목차
+   1. COMMON
+   2. PAGE CONTENTS
+   3. BOTTOM-NAVIGATION
+ */
+
+ /* COMMON */
+body {
+  padding: 50px;
+  background: url('../../images/index/HOME.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+/* /COMMON */
+
+/* PAGE CONTENTS */
+/* HOME PAGE */
+section#pages div#HOME h1 {
+  color:#660000;
+}
+/* INFORMATION PAGE */
+div#INFORMATION h1 {
+  color: rgb(56, 56, 56);
+}
+/* EVENT PAGE */
+div#EVENT h1 {
+  color: rgb(150, 150, 150);
+}
+div#EVENT p {
+  color: #660000;
+}
+div#EVENT {
+  opacity: 0.9;
+}
+.carousel-item {
+  height: 45vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  background-size: 70% 50%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* /PAGE CONTENTS */
+
+/* BOTTOM-NAVIGATION */
+nav#footer div.container-fluid div.row {
+  display: contents !important;
+}
+nav#footer div.container-fluid div#page-tabs a.active {
+  color: #770000 !important;
+}
+div.container-fluid div#page-tabs a {
+  text-decoration:none;
+}
+/*
+  게임 시작하기 버튼 설정 및 페이지별 색상 조절
+*/
+div#game-control-box button {
+  font-size:50px;
+  text-decoration:none;
+}
+/* HONE PAGE */
+div#game-control-box button#HOME {
+  color:rgb(56, 56, 56);
+}
+div#game-control-box button#HOME:hover {
+  color: #770000 !important;
+}
+/* INFORMATION PAGE */
+div#game-control-box button#INFORMATION {
+  color:rgb(56, 56, 56);
+}
+div#game-control-box button#INFORMATION:hover {
+  color: rgb(230, 230, 230) !important;
+}
+/* EVENT PAGE */
+div#game-control-box button#EVENT {
+  color:rgb(230, 230, 230);
+}
+div#game-control-box button#EVENT:hover {
+  color: #770000 !important;
+}
+/*
+  /게임 시작하기 버튼 설정 및 페이지별 색상 조절
+*/
+
+nav#footer div.container-fluid div#game-page-sliding {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+nav#footer div.container-fluid div#game-detail form {
+  float: left
+}
+nav#footer div.container-fluid div#game-detail span {
+  color: rgb(56, 56, 56);
+  font-size: 30px;
+  margin-right: 10px;
+}
+nav#footer div.container-fluid div#game-detail label {
+  color: rgb(56, 56, 56);
+  font-size: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+nav#footer div.container-fluid div#game-detail input {
+  height: 30px;
+  opacity: 0.3;
+}
+nav#footer div.container-fluid div#game-detail div.alert {
+  float: left;
+  opacity: 0.5;
+  height: 30px;
+  margin-top: 10px;
+  margin-left: 50px;
+  padding-top: 0px;
+  font-size: 20px;
+}
+/*
+  페이지 별 로그인 및 회원가입 버튼 색상 조절
+*/
+nav#footer div.container-fluid div#game-detail button {
+  padding-left: 15px;
+  padding-right: 15px;
+  text-decoration:none;
+}
+/* HOME PAGE */
+nav#footer div.container-fluid div#game-detail button#HOME {
+  color: rgb(56, 56, 56);
+}
+nav#footer div.container-fluid div#game-detail button#HOME:hover {
+  color:#660000;
+}
+/* INFORMATION PAGE */
+nav#footer div.container-fluid div#game-detail button#INFORMATION {
+  color: rgb(56, 56, 56);
+}
+nav#footer div.container-fluid div#game-detail button#INFORMATION:hover {
+  color:rgb(230, 230, 230);
+}
+/* EVENT PAGE */
+nav#footer div.container-fluid div#game-detail button#EVENT {
+  color: rgb(230, 230, 230);
+}
+nav#footer div.container-fluid div#game-detail button#EVENT:hover {
+  color:#660000;
+}
+/* /BOTTOM-NAVIGATION */

@@ -1,0 +1,4266 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Passion One;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #0c0a08;
+    overflow: hidden;
+    font-size: 20px;
+}
+
+.stein-scale {
+    transform: scale(1);
+}
+
+input[type=text], input[type=password], input[type=email] {
+    padding: 0 3px;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    padding: 1px;
+    height: 18px;
+    vertical-align: bottom;
+    margin-bottom: 2px;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 0px solid #000000;
+    height: 18px;
+    width: 25px;
+    border-radius: 3px;
+    background: rgb(38, 33, 25);
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+input[type=range]::-moz-range-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 0px solid #000000;
+    height: 18px;
+    width: 25px;
+    border-radius: 3px;
+    background: rgb(38, 33, 25);
+    cursor: pointer;
+}
+input[type=range]::-ms-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 0px solid #000000;
+    height: 18px;
+    width: 25px;
+    border-radius: 3px;
+    background: rgb(38, 33, 25);
+    cursor: pointer;
+}
+
+select {
+    background-color: rgb(237, 220, 160);
+    border: 3px solid rgb(38, 33, 25);
+    border-radius: 5px;
+    height: 28px;
+    color: rgb(38, 33, 25);
+    font-family: Passion One;
+    font-size: 16px;
+    width: 180px;
+}
+
+h2 {
+    margin: 0 0 10px;
+}
+
+#stein-errors {
+    z-index: 2000;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.stein-error {
+    margin: auto;
+    width: 600px;
+    background: rgba(239, 23, 38, 1);
+    padding: 3px;
+    border: 3px solid rgb(38, 33, 25);
+    border-radius: 5px;
+    margin-top: 5px;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+}
+
+#stein-options-screen, #stein-processing-payment-overlay, #stein-payment-success-overlay,
+#stein-payment-confirm-payment-overlay, #stein-initializing-payment-overlay, #stein-generic-dialog-overlay {
+    position: absolute;
+    z-index: 198;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    touch-action: none;
+}
+
+.stein-login-frame-content {
+    padding: 6px;
+    margin-bottom: 6px;
+    background: #9a7753;
+    color: #fff;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    margin: 3px;
+    margin-bottom: 8px;
+}
+
+.stein-window-frame-content {padding: 6px;
+    background: #9a7753;
+    color: #fff;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    margin: 3px;
+        margin-bottom: 3px;
+    margin-bottom: 8px;
+}
+
+.stein-window-frame-content-header {
+    font-size: 22px;
+    padding-bottom: 6px;
+    color: #efba17;
+}
+
+#stein-options-screen-options {
+    display: flex;
+    min-height: 400px;
+    height: 100%;
+}
+
+.stein-shop-window-content {
+    display: flex;
+}
+
+.stein-map-window-content {
+    display: flex;
+    height: 100%;
+    margin: auto;
+        margin-top: auto;
+    color: #eeeeec;
+    font-size: 24px;
+    background: #9a7753;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    margin-top: 2px;
+}
+
+.stein-hub-window-content {
+    display: flex;
+    max-height: 100%;
+    min-height: 50%;
+}
+
+.stein-window-frame-navigation {
+    padding-right: 6px;
+    margin-bottom: 22px;
+}
+
+.stein-navigation-button {
+    margin-left: 0px;
+    margin-bottom: 6px;
+    margin-top: 0px;
+    width: 124px;
+}
+
+.stein-navigation-button-special {
+    margin-left: 0px;
+    margin-bottom: 6px;
+    margin-top: 0px;
+    width: 124px;
+    background-color: #87dcc3;
+}
+
+#stein-options-form {
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    min-width: 80%;
+    height: 80%;
+    max-width: 1300px;
+    background: #bc9266;
+    padding: 8px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+}
+
+#stein-processing-payment-overlay-container, #stein-initializing-payment-overlay-container {
+    margin: auto;
+    top: 35%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    width: 400px;
+    background: #bc9266;
+    padding: 8px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    display: inline-block;
+}
+
+#stein-payment-success-overlay-container {
+    margin: auto;
+    top: 35%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    width: 400px;
+    background: #bc9266;
+    padding: 8px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    display: inline-block;
+}
+
+#stein-generic-dialog-overlay-container {
+    margin: auto;
+    top: 35%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    width: 400px;
+    background: #bc9266;
+    padding: 8px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    display: inline-block;
+}
+
+#stein-payment-confirm-payment-overlay-container {
+    margin: auto;
+    top: 35%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    width: 600px;
+    background: #bc9266;
+    padding: 8px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    display: inline-block;
+}
+
+#stein-payment-confirm-payment-overlay-content {
+    background: #9a7753;
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    font-size: 22px;
+}
+
+.stein-payment-options-container {
+    margin-top: 5px;
+    text-align: center;
+}
+
+.stein-payment-options-container button {
+    display: inline-block;
+    width: 152px;
+}
+
+.stein-options-chat-tab {
+    display: inline-block;
+    padding-left: 10px;
+    margin: 10px;
+}
+
+.stein-options-chat-tab-remove {
+    float: right;
+    margin: 3px 3px 8px;
+}
+
+#stein-payment-legal-text {
+    border: 1px solid #262119;
+    padding: 5px;
+    background: rgb(177, 140, 103);
+    overflow-y: auto;
+    font-size: 18px;
+    text-shadow: none;
+    color: #262119;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+#stein-payment-confirm-payment-methods {
+    text-align: center;
+}
+
+.stein-payment-confirm-payment-method {
+    width: 150px;
+    margin: 4px;
+}
+
+.stein-payment-confirm-payment-method-selected {
+    background-color: #b6dc87;
+}
+
+#stein-payment-confirm-payment-product-name {
+    color: rgb(182, 220, 135);
+}
+
+#stein-payment-confirm-payment-product-price, .stein-payment-confirm-highlight {
+    color: rgb(182, 220, 135);
+}
+
+#stein-tooltip-highlight {
+
+}
+
+.stein-payment-confirm-option {
+    text-align: center;
+}
+
+#stein-payment-paypal-dummy {
+    padding: 3px 0 4px 0;
+}
+
+#stein-shop-window {
+    position: absolute;
+    z-index: 150;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    touch-action: none;
+}
+
+#stein-wave-dungeon-reward-window {
+    position: absolute;
+    z-index: 150;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    touch-action: none;
+}
+
+.stein-wave-dungeon-body {
+    font-size: 24px;
+    text-align: center;
+    background: #9a7753;
+    color: #fff;
+    user-select: none;
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    margin-top: 3px;
+}
+
+.stein-wave-dungeon-name, .stein-wave-dungeon-wave, .stein-wave-dungeon-time {
+    color: rgb(182, 220, 135);
+}
+
+#stein-map-window {
+    position: absolute;
+    z-index: 150;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    touch-action: none;
+ }
+
+#stein-hub-window {
+    position: absolute;
+    z-index: 150;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    touch-action: none;
+}
+
+#stein-shop-window-container {
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    min-width: 80%;
+    height: 80%;
+    max-width: 1300px;
+    background: #bc9266;
+    padding: 8px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+}
+
+#stein-wave-dungeon-reward-window-container {
+    margin: auto;
+    top: 15%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    width: 500px;
+    background: #bc9266;
+    padding: 8px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+}
+
+#stein-map-window-container {
+    margin: auto;
+    top: 10%;
+    left: 20%;
+    bottom: 10%;
+    right: 20%;
+    position: absolute;
+    background: #bc9266;
+    padding: 8px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    overflow: hidden;
+    padding-bottom: 37px;
+}
+
+#stein-hub-window-container {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    min-width: 80%;
+    height: 80%;
+    max-width: 1300px;
+    font-size: 24px;
+    color: #eeeeec;
+    margin: auto;
+    background: #bc9266;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px 10px 10px 10px;
+    border: 4px solid rgb(38, 33, 25);
+        border-top-color: rgb(38, 33, 25);
+        border-top-style: solid;
+        border-top-width: 4px;
+        border-left-color: rgb(38, 33, 25);
+        border-left-style: solid;
+        border-left-width: 4px;
+    border-top-color: rgb(38, 33, 25);
+    border-top-style: solid;
+    border-top-width: 4px;
+    border-left-color: rgb(38, 33, 25);
+    border-left-style: solid;
+    border-left-width: 4px;
+    padding: 8px;
+}
+
+.stein-version-info {
+    font-size: 18px;
+    padding: 5px;
+}
+
+.stein-login-screen-version-info {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #fff;
+    font-size: 23px;
+    padding: 5px;
+}
+
+#stein-login-logo {
+
+}
+
+#stein-login-screen {
+    position: absolute;
+    z-index: 199;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: black url(/assets/images/login-background.png) center;
+    background-size: cover;
+    touch-action: none;
+}
+
+#stein-login-screen-forms {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 400px;
+    height: 200px;
+    z-index: 100;
+}
+
+#stein-login-screen-connecting {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 400px;
+    height: 100px;
+    z-index: 101;
+}
+
+.stein-maintenance-window {
+    overflow: auto;
+    text-align: center;
+    margin: auto;
+ }
+
+.stein-maintenance-window-images {
+    display: inline-flex;
+}
+
+#stein-login-screen-maintenance {
+    margin: auto;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    height: 268px;
+    background: #bc9266;
+    color: white;
+    user-select: none;
+    padding: 8px;
+    display: inline-block;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    z-index: 100;
+    top: 0;
+    width: 612px;
+}
+
+.stein-login-screen-connecting-content-container {
+    background: #bc9266;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    text-align: center;
+    padding: 20px 8px 60px;
+}
+
+.stein-maintenance-window-top {
+    color: rgb(182, 220, 135);
+    font-size: 26px;
+    text-align: center;
+    line-height: 26px;
+    margin: -3px;
+    height: 26px;
+    padding-bottom: 10px;
+}
+
+.stein-maintenance-window {
+    background: #9a7753;
+    width: 598px;
+    color: #fff;
+    user-select: none;
+    padding: 5px;
+    display: inline-block;
+    float: right;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+}
+
+.stein-login-screen-connecting-spinner {
+    text-shadow: none;
+    animation-name: stein-spinner-animation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    display: inline-block;
+    transform-origin: 20px 22px;
+    font-size: 31px;
+    margin-left: 36px;
+    margin-top: 36px;
+    margin-bottom: 36px;
+}
+
+#stein-login-language {
+    width: 80px;
+    height: 26px;
+    position: relative;
+    top: -5px;
+}
+
+.stein-login-screen-bottom-bar {
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    padding: 5px;
+    right: 0;
+    left: 0;
+    width: 706px;
+    margin: auto;
+    font-size: 22px;
+    display: flex;
+    color: #eeeeec;
+    transform-origin: top;
+    list-style: none;
+    background: #bc9266;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 0 0 10px 10px;
+    border: 4px solid rgb(38, 33, 25);
+    border-top: 0;
+    line-height: 26px;
+}
+
+.stein-login-screen-footer {
+    position: absolute;
+    bottom: 0;
+    z-index: 98;
+    right: 0;
+    left: 0;
+    display: flex;
+    width: 400px;
+    color: #eeeeec;
+    margin: auto;
+    transform-origin: bottom;
+    list-style: none;
+    background: #bc9266;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px 10px 0 0;
+    border: 4px solid rgb(38, 33, 25);
+    padding: 6px;
+    border-bottom: 0;
+}
+
+.stein-login-screen-footer a, .stein-options-legal a {
+    margin: 0 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.stein-window-top {
+    color: rgb(182, 220, 135);
+    font-size: 26px;
+    text-align: center;
+    line-height: 26px;
+    margin: -3px;
+    height: 26px;
+    padding-bottom: 7px;
+}
+
+.stein-window-top-loginscreen {
+    color: rgb(182, 220, 135);
+    font-size: 28px;
+    text-align: center;
+    width: 150px;
+    display: inline-block;
+    cursor: pointer;
+    background: #bc9266;
+    padding: 5px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px 10px 0 0;
+    border: 4px solid rgb(38, 33, 25);
+    border-bottom: 0;
+}
+
+.stein-login-tab-container {
+    text-align: center;
+    z-index: 9;
+    position: relative;
+}
+
+.stein-login-tab-content-container {
+    z-index: 10;
+    position: relative;
+    background: #bc9266;
+    padding: 8px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+}
+
+#stein-login-screen-server-select {
+    background-color: rgb(237, 220, 160);
+    border: 3px solid rgb(38, 33, 25);
+    border-radius: 5px;
+    height: 26px;
+    color: rgb(38, 33, 25);
+    font-family: Passion One;
+    font-size: 16px;
+    width: 180px;
+}
+
+#stein-login-screen-register-character-head {
+    position: absolute;
+    width: 144px;
+    height: 100px;
+    z-index: 2;
+    background-size: cover;
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated;
+    image-rendering: optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
+}
+
+#stein-login-screen-register-character-body {
+    position: absolute;
+    width: 144px;
+    height: 100px;
+    z-index: 1;
+    background-size: cover;
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated;
+    image-rendering: optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
+}
+
+#stein-login-screen-register-character-display {
+    width: 144px;
+    height: 100px;
+    margin: auto;
+    position: relative;
+}
+
+#stein-login-screen-register-character-gender {
+    width: 100%;
+    text-align: center;
+}
+
+#stein-login-screen-register-character-head-prev {
+    position: absolute;
+    left: 115px;
+    cursor: pointer;
+}
+
+#stein-login-screen-register-character-head-next {
+    position: absolute;
+    right: 115px;
+    cursor: pointer;
+}
+
+#stein-login-screen-register-character-body-prev {
+    position: absolute;
+    left: 115px;
+    top: 60px;
+    cursor: pointer;
+}
+
+#stein-login-screen-register-character-body-next {
+    position: absolute;
+    right: 115px;
+    top: 60px;
+    cursor: pointer;
+}
+
+.unselected-tab {
+    color: rgb(147, 179, 107);
+    background: #9a7753;
+    padding: 5px;
+    box-shadow: inset 0px 0px 0 3px rgba(38, 24, 8, 0.4);
+    border-radius: 10px 10px 0 0;
+    border: 4px solid rgb(38, 33, 25);
+    border-bottom: 0;
+}
+
+#stein-login-screen-register {
+    display: none;
+}
+
+.stein-window-body {
+    font-size: 24px;
+    max-height: 100%;
+    min-height: 60%;
+    color: #eeeeec;
+    margin: auto;
+    transform-origin: bottom;
+    list-style: none;
+}
+
+.stein-text-border {
+    text-shadow: 1px 1px 0 #262119,
+    -1px 1px 0 #262119,
+    1px -1px 0 #262119,
+    -1px -1px 0 #262119,
+    0 1px 0 #262119,
+    0 -1px 0 #262119,
+    -1px 0 0 #262119,
+    1px 0 0 #262119,
+    2px 2px 0 #262119,
+    -2px 2px 0 #262119,
+    2px -2px 0 #262119,
+    -2px -2px 0 #262119,
+    0 2px 0 #262119,
+    0 -2px 0 #262119,
+    -2px 0 0 #262119,
+    2px 0 0 #262119,
+    1px 2px 0 #262119,
+    -1px 2px 0 #262119,
+    1px -2px 0 #262119,
+    -1px -2px 0 #262119,
+    2px 1px 0 #262119,
+    -2px 1px 0 #262119,
+    2px -1px 0 #262119,
+    -2px -1px 0 #262119;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(182, 220, 135);
+}
+
+button, .button {
+    background-color: #dbbb83;
+    color: rgb(38, 33, 25);
+    font-family: Passion One;
+    cursor: pointer;
+    margin: 0;
+    text-shadow: none;
+    padding: 1px 6px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgb(107, 81, 53, 0.4);
+    line-height: 18px;
+    font-size: 18px;
+    height: 22px;
+}
+
+button:hover, .button:hover {
+    color: rgb(38, 33, 25);
+    background-color: #eddca0;
+}
+
+.selected-button {
+    background-color: #b6dc87;
+}
+
+
+.button-special {
+    background-color: #87dcc3;
+}
+
+
+button:disabled, button:disabled:hover {
+    cursor: default;
+    background-color: #948c84;
+}
+
+input {
+    background-color: rgb(237, 220, 160);
+    border: 3px solid rgb(38, 33, 25);
+    border-radius: 5px;
+    height: 22px;
+    color: rgb(38, 33, 25);
+    font-family: Passion One;
+    font-size: 20px;
+    width: 168px;
+    margin-top: 2px;
+}
+
+.stein-form-label {
+    width: 170px;
+    display: inline-block;
+    text-align: right;
+}
+
+.stein-form-label-options {
+    width: 170px;
+    display: inline-block;
+    text-align: right;
+    font-size: 18px;
+}
+
+#stein-respawn-screen {
+    position: absolute;
+    z-index: 180;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #eeeeec;
+    touch-action: none;
+}
+
+#stein-respawn-screen-content {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 500px;
+    height: 200px;
+    text-align: center;
+}
+
+.stein-respawn-screen-respawn-button {
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #3ac100;
+    background-color: #2c9200;
+    border-radius: 2px;
+    margin: 5px;
+}
+
+.stein-respawn-screen-respawn-button:hover {
+    background-color: #5ede26;
+}
+
+#stein-canvas {
+    z-index: 0;
+    position: absolute;
+    touch-action: none;
+}
+
+#stein-overlay {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+}
+
+#stein-chat-container {
+    z-index: 100;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    color: #eeeeec;
+    width: 514px;
+    font-size: 16px;
+    transform-origin: bottom left;
+}
+
+#stein-chat-content-container {
+    max-height: 170px;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: -1;
+    border-radius: 0 10px 0 0;
+    border: 4px solid rgb(38, 33, 25);
+    border-bottom: 0;
+    border-left: 0;
+}
+
+#stein-chat-tabs {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.stein-chat-tab {
+    display: inline-block;
+    background: #bc9266;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-top-left-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    border-bottom: 0;
+    border-top-right-radius: 10px;
+    padding: 6px 8px 5px 8px;
+    cursor: pointer;
+}
+
+.stein-chat-tab-edit {
+    background: url(/assets/images/shortcuts_button_options.png), #bc9266;
+    height: 17px;
+    width: 13px;
+    display: inline-block;
+    margin-bottom: -9px;
+    background-size: cover;
+}
+
+.stein-chat-tab-selected {
+    color: rgb(182, 220, 135);
+}
+
+.stein-chat-tab:hover {
+    color: #efba17;
+}
+
+.stein-chat-content {
+    margin: 7px 5px;
+    list-style: none;
+    padding: 0;
+    word-wrap: break-word;
+}
+
+#stein-chat-container-input {
+    color: white;
+    width: 500px;
+    background: #bc9266;
+    padding: 5px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border: 4px solid rgb(38, 33, 25);
+    border-bottom: 0px;
+    border-left: 0px;
+    padding-top: 3px;
+}
+
+#stein-chat-type {
+    width: 90px;
+    vertical-align: top;
+    margin-top: 2px;
+    height: 28px;
+}
+
+#stein-chat-input {
+    width: 340px;
+    vertical-align: top;
+    margin-top: 2px;
+}
+
+#stein-chat-send {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-top: 5px;
+}
+
+.stein-chat-message-service {
+    color: rgb(255, 224, 70);
+    color: #efba17;
+}
+
+.stein-chat-message-global {
+}
+
+.stein-chat-message-party {
+    color: #b6dc87;
+}
+
+.stein-chat-message-whisper-from, .stein-chat-message-whisper-to {
+    color: #f7a0f3;
+}
+
+.stein-chat-message-global-name, .stein-chat-message-zone-name, .stein-chat-message-party-name,
+.stein-chat-message-whisper-name {
+    cursor: pointer;
+}
+
+.stein-chat-message-global-name:hover, .stein-chat-message-zone-name:hover, .stein-chat-message-party-name:hover,
+.stein-chat-message-whisper-name:hover {
+    text-decoration: underline;
+}
+
+#stein-quick-bar-container {
+    z-index: 100;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    touch-action: none;
+    pointer-events: none;
+    transform-origin: bottom;
+}
+
+#stein-quick-bar {
+    margin: auto;
+    user-select: none;
+    list-style: none;
+    padding: 1px;
+    display: flex;
+    touch-action: auto;
+    pointer-events: auto;
+    z-index: 100;
+    color: #eeeeec;
+    background: #9a7753;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 0 0 3px 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+}
+
+#stein-quick-bar-frame {
+    width: 586px;
+    display: flex;
+    touch-action: auto;
+    pointer-events: auto;
+    color: #eeeeec;
+    margin: auto;
+    transform-origin: bottom;
+    list-style: none;
+    background: #bc9266;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px 10px 0 0;
+    border: 4px solid rgb(38, 33, 25);
+        border-top-color: rgb(38, 33, 25);
+        border-top-style: solid;
+        border-top-width: 4px;
+        border-bottom-color: rgb(38, 33, 25);
+        border-bottom-style: solid;
+        border-bottom-width: 4px;
+        border-left-color: rgb(38, 33, 25);
+        border-left-style: solid;
+        border-left-width: 4px;
+    border-top-color: rgb(38, 33, 25);
+    border-top-style: solid;
+    border-top-width: 4px;
+    border-left-color: rgb(38, 33, 25);
+    border-left-style: solid;
+    border-left-width: 4px;
+    border-top-color: rgb(38, 33, 25);
+    border-top-style: solid;
+    border-top-width: 4px;
+    border-left-color: rgb(38, 33, 25);
+    border-left-style: solid;
+    border-left-width: 4px;
+    padding: 8px;
+    border-bottom: 0;
+    display: block;
+}
+
+#stein-experience-bar {
+    margin: auto;
+        margin-bottom: auto;
+    position: relative;
+    margin-bottom: 3px;
+    touch-action: auto;
+    pointer-events: auto;
+    z-index: 100;
+    color: #eeeeec;
+    user-select: none;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px 3px 0 0;
+    border: 2px solid rgb(143, 222, 48);
+    height: 5px;
+}
+
+#stein-shortcuts-container {
+    z-index: 100;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform-origin: bottom right;
+}
+
+#stein-shortcuts-forms {
+    color: #eeeeec;
+    transform-origin: bottom;
+    user-select: none;
+    list-style: none;
+    display: block;
+    background: #bc9266;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px 0 0 0;
+    border: 4px solid rgb(38, 33, 25);
+        border-bottom-color: rgb(38, 33, 25);
+        border-bottom-style: solid;
+        border-bottom-width: 4px;
+    padding: 8px;
+    border-bottom: 0;
+    border-right: 0;
+}
+
+#stein-shortcuts-content {
+    color: #eeeeec;
+    transform-origin: bottom;
+    user-select: none;
+    list-style: none;
+    display: flex;
+    background: #9a7753;
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    padding: 6px 0 0 6px;
+}
+
+#stein-social-media {
+    background: #9a7753;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px 3px 0 0;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    margin-bottom: 3px;
+}
+
+.stein-inventory-button {
+    cursor: pointer;
+    z-index: 100;
+    color: #89664e;
+    background: rgba(0, 0, 0, 0.5) url(/assets/images/shortcuts_button_stats.png);
+    text-align: center;
+    font-size: 30px;
+    line-height: 40px;
+    user-select: none;
+    height: 48px;
+    width: 48Px;
+    border: 2px solid #eddca0;
+    border-radius: 3px;
+    max-height: 48px;
+    max-width: 48px;
+    box-shadow: 0px 0px 0 2px #262119;
+    margin-bottom: 8px;
+    margin-left: 3px;
+}
+
+.stein-help-button {
+    cursor: pointer;
+    z-index: 100;
+    color: #89664e;
+    text-align: center;
+    font-size: 30px;
+    line-height: 40px;
+    user-select: none;
+    height: 48px;
+    width: 48Px;
+    border: 2px solid #eddca0;
+    border-radius: 3px;
+    max-height: 48px;
+    max-width: 48px;
+    box-shadow: 0px 0px 0 2px #262119;
+}
+
+#stein-social-media-content {
+    text-align: right;
+}
+
+.stein-quick-bar-slot {
+    cursor: pointer;
+    display: table-cell;
+    height: 48px;
+    width: 48Px;
+    border: 2px solid #eddca0;
+    border-radius: 3px;
+    position: relative;
+    max-height: 48px;
+    max-width: 48px;
+    background-color: #ccae7a;
+    box-shadow: 0px 0px 0 2px #262119;
+    margin: 3px;
+}
+
+.stein-item-inventory-slot {
+    cursor: pointer;
+    display: inline-block;
+    height: 48px;
+    width: 48Px;
+    border: 2px solid #eddca0;
+    border-radius: 3px;
+    position: relative;
+    max-height: 48px;
+    max-width: 48px;
+    background-color: #ccae7a;
+    box-shadow: 0px 0px 0 2px #262119;
+}
+
+.stein-item-amount {
+    bottom: 0;
+    right: 2px;
+    position: absolute;
+}
+
+#stein-player-container {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    transform-origin: top left;
+    touch-action: none;
+    pointer-events: none;
+}
+
+#stein-player-forms {
+    color: #eeeeec;
+    margin: auto;
+    transform-origin: bottom;
+    list-style: none;
+    background: #bc9266;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 0 0 10px 0;
+    padding: 8px;
+    border: 0 solid rgb(38, 33, 25);
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    touch-action: auto;
+    pointer-events: auto;
+}
+
+#stein-target-container {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform-origin: top right;
+}
+
+#stein-target-forms {
+    color: #eeeeec;
+    margin: auto;
+    transform-origin: bottom;
+    list-style: none;
+    background: #bc9266;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 0 0 0 10px;
+    border: 4px solid rgb(38, 33, 25);
+    padding: 8px;
+    border-top: 0;
+    border-right: 0;
+}
+
+#stein-player-life-panel {
+    z-index: 100;
+    width: 330px;
+    height: 16px;
+    color: #eeeeec;
+    text-align: left;
+    line-height: 18px;
+    font-size: 18px;
+    padding-left: 6px;
+    user-select: none;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgb(244, 87, 50);
+    margin-top: 8px;
+}
+
+#stein-player-energy-panel {
+    z-index: 100;
+    width: 330px;
+    height: 16px;
+    color: #eeeeec;
+    text-align: left;
+    line-height: 18px;
+    font-size: 18px;
+    padding-left: 6px;
+    user-select: none;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgb(255, 207, 59);
+    margin-top: 8px;
+}
+
+#stein-player-mana-panel {
+    z-index: 100;
+    width: 330px;
+    height: 16px;
+    color: #eeeeec;
+    text-align: left;
+    line-height: 18px;
+    font-size: 18px;
+    padding-left: 6px;
+    user-select: none;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgb(93, 147, 190);
+    margin-top: 8px;
+}
+
+.stein-name-panel {
+    z-index: 100;
+    height: 24px;
+    font-size: 24px;
+    line-height: 26px;
+    user-select: none;
+    text-align: left;
+    color: #eeeeec;
+    background: #9a7753;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    display: flex;
+    max-width: 336px;
+}
+
+#stein-party-invite-accept-invite-player {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#stein-player-name-panel {
+    font-size: 24px;
+    line-height: 26px;
+    user-select: none;
+    text-align: left;
+    color: #eeeeec;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-left: 6px;
+}
+
+#stein-player-level-panel {
+    z-index: 100;
+    left: 2px;
+    color: #eeeeec;
+    text-align: right;
+    line-height: 26px;
+    font-size: 24px;
+    padding-right: 6px;
+    width: 45px;
+}
+
+#stein-player-party-leader {
+    width: 26px;
+    height: 22px;
+    background-size: cover;
+    background-image: url(/assets/images/party_leader_32.png);
+    z-index: 110;
+    display: inline-table;
+}
+
+.stein-buff-time-text {
+    text-align: center;
+}
+
+#stein-player-buffs {
+    position: absolute;
+    left: 382px;
+    top: 3px;
+    display: flex;
+}
+
+.stein-player-buff {
+    width: 48px;
+    height: 48px;
+    background-image: url(/assets/images/buffs/default.png);
+    background-size: cover;
+    margin-right: 3px;
+}
+
+#stein-target-life-panel {
+    z-index: 100;
+    width: 330px;
+    height: 16px;
+    color: #eeeeec;
+    text-align: left;
+    line-height: 18px;
+    font-size: 18px;
+    padding-left: 6px;
+    user-select: none;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgb(244, 87, 50);
+    margin-top: 8px;
+}
+
+#stein-target-level {
+    z-index: 100;
+    left: 2px;
+    color: #eeeeec;
+    text-align: right;
+    line-height: 26px;
+    font-size: 24px;
+    width: 45px;
+    padding-right: 6px;
+}
+
+#stein-target-name {
+    z-index: 100;
+    height: 24px;
+    font-size: 24px;
+    line-height: 26px;
+    user-select: none;
+    text-align: left;
+    color: #eeeeec;
+    width: 278px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-left: 6px;
+}
+
+#stein-target-buffs {
+    position: absolute;
+    right: 382px;
+    top: 3px;
+    display: flex;
+}
+
+.stein-target-buff {
+    width: 48px;
+    height: 48px;
+    background-image: url(/assets/images/buffs/default.png);
+    background-size: cover;
+    margin-left: 3px;
+}
+
+#stein-party-container {
+    color: #eeeeec;
+    margin: auto;
+    transform-origin: bottom;
+    list-style: none;
+    background: #bc9266;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 0 0 10px 0;
+    border: 4px solid rgb(38, 33, 25);
+    padding: 8px;
+    border-top: 0;
+    border-left: 0;
+    display: inline-block;
+    touch-action: auto;
+    pointer-events: auto;
+}
+
+#stein-party-member-list {
+
+}
+
+.stein-party-member {
+    color: #eeeeec;
+    transform-origin: bottom;
+    user-select: none;
+    list-style: none;
+    position: relative;
+}
+
+#stein-party-invite, #stein-party-invite-member-container, #stein-party-invite-accept-container {
+
+}
+
+#stein-party-invite {
+    display: inline-block;
+}
+
+#stein-party-invite-member-container, #stein-party-invite-accept-container {
+    display: block;
+}
+
+#stein-options-change-password, #stein-login-screen-login-button, #stein-login-screen-register-button,
+#stein-options-change-mail, #stein-options-reset-key-bindings {
+    margin-left: 178px;
+    margin-top: 5px;
+}
+
+#stein-party-invite-member-invite-button, #stein-party-invite-member-cancel-button,
+#stein-party-invite-accept-accept-button, #stein-party-invite-accept-decline-button {
+    margin-top: 6px;
+    margin-right: 4px;
+}
+
+.stein-party-member-life-panel {
+    z-index: 100;
+    height: 16px;
+    color: #eeeeec;
+    text-align: left;
+    line-height: 18px;
+    font-size: 18px;
+    padding-left: 6px;
+    user-select: none;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgb(244, 87, 50);
+    margin-top: 8px;
+    margin-bottom: 12px;
+    width: 225px;
+}
+
+.stein-party-member-name-panel {
+    z-index: 100;
+    height: 20px;
+    font-size: 20px;
+    line-height: 22px;
+    user-select: none;
+    text-align: left;
+    color: #eeeeec;
+    background: #9a7753;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    display: flex;
+    max-width: 231px;
+}
+
+.stein-party-member-name {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-left: 4px;
+}
+
+.stein-party-member-level {
+    color: #eeeeec;
+    user-select: none;
+    text-align: right;
+    font-size: 20px;
+    width: 34px;
+    padding-right: 4px;
+}
+
+.stein-party-member-leader {
+    width: 22px;
+    height: 20px;
+    background-size: cover;
+    background-image: url(/assets/images/party_leader_16.png);
+    z-index: 1;
+    display: inline-table;
+}
+
+#stein-party-invite-window-invite-button, #stein-party-invite-window-cancel-button {
+    margin: 6px 0 0;
+}
+
+#stein-shortcuts-button-container {
+    margin: auto;
+    user-select: none;
+    list-style: none;
+    padding: 1px;
+    display: flex;
+    touch-action: auto;
+    pointer-events: auto;
+    z-index: 100;
+    color: #eeeeec;
+    background: #9a7753;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px 0 3px 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+}
+
+.stein-toggle-button {cursor: pointer;
+    z-index: 100;
+    color: #89664e;
+    background: rgba(0, 0, 0, 0.5) url(/assets/images/shortcuts_button_stats.png);
+    text-align: center;
+    font-size: 30px;
+    line-height: 40px;
+    user-select: none;
+    height: 48px;
+    width: 48Px;
+    border: 2px solid #eddca0;
+    border-radius: 3px;
+    max-height: 48px;
+    max-width: 48px;
+    box-shadow: 0px 0px 0 2px #262119;
+    margin: 3px;
+}
+
+#stein-stats-toggle-button {
+    background: rgb(219, 187, 131) url(/assets/images/shortcuts_button_stats.png);
+}
+
+#stein-professions-toggle-button {
+    background: rgb(219, 187, 131) url(/assets/images/shortcuts_button_professions.png);
+}
+
+#stein-professions-help-button {
+    background: rgb(219, 187, 131) url(/assets/images/items/fragezeichen.png);
+}
+
+#stein-inventory-toggle-button {
+    background: rgb(219, 187, 131) url(../../images/game/shortcuts/button_inventory.png);
+}
+
+#stein-map-toggle-button {
+    background: rgb(219, 187, 131) url(../../images/game/shortcuts/button_map.png);
+}
+
+#stein-hub-toggle-button {
+    background: rgb(219, 187, 131) url(../../images/game/shortcuts/button_hub.png);
+}
+
+#stein-quest-log-toggle-button {
+    background: rgb(219, 187, 131) url(../../images/game/shortcuts/button_questlog.png);
+}
+
+#stein-options-toggle-button {
+    background: rgb(219, 187, 131) url(../../images/game/shortcuts/button_options.png);
+}
+
+#stein-shop-toggle-button {
+    background: rgb(219, 187, 131) url(../../images/game/shortcuts/button_store.gif);
+}
+
+#stein-stats-window-frame {
+    margin-right: 10px;
+    display: inline-block;
+    float: left;
+    z-index: 100;
+    transform-origin: left top;
+    background: #bc9266;
+    padding: 8px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    touch-action: auto;
+    pointer-events: auto;
+}
+
+#stein-stats-window-top {
+    color: rgb(182, 220, 135);
+    font-size: 26px;
+    text-align: center;
+    line-height: 26px;
+    margin: -3px;
+    height: 26px;
+    padding-bottom: 10px;
+}
+
+#stein-stats-window {
+    z-index: 100;
+    top: 137px;
+    color: white;
+    user-select: none;
+    max-height: calc(100vh - 350px);
+    overflow: auto;
+    width: 400px;
+    background: #9a7753;
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    font-size: 18px;
+}
+
+#stein-inventory-window-frame {
+    margin-left: 10px;
+    float: right;
+    background: #bc9266;
+    color: white;
+    user-select: none;
+    padding: 8px;
+    display: inline-block;
+    float: right;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    touch-action: auto;
+    pointer-events: auto;
+}
+
+#stein-inventory-window-top {
+    color: rgb(182, 220, 135);
+    font-size: 26px;
+    text-align: center;
+    line-height: 26px;
+    margin: -3px;
+    height: 26px;
+    padding-bottom: 10px;
+}
+
+#stein-inventory-window {
+    background: #9a7753;
+    width: 598px;
+    color: #fff;
+    user-select: none;
+    padding: 5px;
+    display: inline-block;
+    float: right;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+}
+
+#stein-bank-window-frame {
+    display: inline-block;
+    float: left;
+    background: #bc9266;
+    padding: 8px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    margin-right: 10px;
+    touch-action: auto;
+    pointer-events: auto;
+}
+
+#stein-bank-window-top {
+    color: rgb(182, 220, 135);
+    font-size: 26px;
+    text-align: center;
+    line-height: 26px;
+    margin: -3px;
+    height: 26px;
+    padding-bottom: 10px;
+}
+
+#stein-bank-window {
+    color: white;
+    user-select: none;
+    display: inline-block;
+    background: #9a7753;
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    max-height: calc(100vh - 300px);
+    overflow: auto;
+    width: 595px;
+}
+
+#stein-bank-items {
+    width: 580px;
+    margin-top: 5px;
+}
+
+#stein-bank-items > .stein-item-inventory-slot {
+    margin: 0 3px 1px 3px;
+}
+
+#stein-bank-extend-gold, #stein-bank-extend-gems {
+    height: 28px;
+    width: 110px;
+    margin: 5px;
+}
+
+.stein-bank-description {
+    width: 570px;
+    margin: 5px;
+}
+
+#stein-bank-actions {
+    margin: 20px 5px 5px;
+}
+
+.stein-bank-actions-buttons {
+    display: inline-block;
+    width: 120px;
+    text-align: right;
+}
+
+.stein-bank-actions-description {
+    display: inline-block;
+    width: 440px;
+}
+
+#stein-mailbox-window-frame {
+    display: inline-block;
+    float: left;
+    background: #bc9266;
+    padding: 8px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    margin-right: 10px;
+    touch-action: auto;
+    pointer-events: auto;
+}
+
+#stein-mailbox-window-top {
+    color: rgb(182, 220, 135);
+    font-size: 26px;
+    text-align: center;
+    line-height: 26px;
+    margin: -3px;
+    height: 26px;
+    padding-bottom: 10px;
+}
+
+#stein-mailbox-window {
+    color: white;
+    user-select: none;
+    display: inline-block;
+    float: right;
+    background: #9a7753;
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+}
+
+.stein-mailbox-mail {
+    margin-bottom: 10px;
+    background: #9a7753;
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    cursor: pointer;
+}
+
+.stein-mailbox-mail:last-of-type {
+    margin-bottom: 0px;
+}
+
+.stein-mailbox-mail:hover {
+    background: rgb(219, 187, 131);
+}
+
+.stein-mailbox-mail-sender {
+    color: #efba17;
+    border-bottom: 2px solid black;
+    width: 350px;
+    vertical-align: top;
+    padding-bottom: 2px;
+}
+
+.stein-mailbox-mail-context {
+    display: inline-block;
+    vertical-align: top;
+    margin: 4px;
+}
+
+.stein-mailbox-mail-actions {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 8px;
+}
+
+.stein-mailbox-mail-delete {
+    width: 40px;
+    height: 40px;
+    background-image: url(/assets/images/icon_trash.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#stein-mail-window-frame {
+    display: inline-block;
+    float: left;
+    background: #bc9266;
+    padding: 8px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    margin-right: 10px;
+    touch-action: auto;
+    pointer-events: auto;
+}
+
+#stein-mail-window-top {
+    color: rgb(182, 220, 135);
+    font-size: 26px;
+    text-align: center;
+    line-height: 26px;
+    margin: -3px;
+    height: 26px;
+    padding-bottom: 10px;
+}
+
+#stein-mail-window {
+    color: white;
+    user-select: none;
+    display: inline-block;
+    float: right;
+    background: #9a7753;
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+}
+
+#stein-professions-window-frame {
+    display: inline-block;
+    float: left;
+    background: #bc9266;
+    padding: 8px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    margin-right: 10px;
+    touch-action: auto;
+    pointer-events: auto;
+}
+
+#stein-professions-window-top {
+    color: rgb(182, 220, 135);
+    font-size: 26px;
+    text-align: center;
+    line-height: 26px;
+    margin: -3px;
+    height: 26px;
+    padding-bottom: 10px;
+}
+
+#stein-professions-window {
+    color: white;
+    user-select: none;
+    display: inline-block;
+    float: right;
+    background: #9a7753;
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+}
+
+#stein-professions-side-bar {
+    display: inline-block;
+}
+
+#stein-professions-main-view {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.stein-professions-skill-slot {
+    display: inline-block;
+    margin-right: 7px;
+}
+
+.stein-professions-side-bar-title {
+    color: #efba17;
+    margin-left: 3px;
+}
+
+.stein-professions-main-view-title {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.stein-professions-side-bar-entry {
+    margin: 5px 6px 9px 1px;
+    height: 16px;
+}
+
+.stein-professions-side-bar-entry-level{
+    float: right;
+}
+
+#stein-professions-current-skills {
+    margin: 5px 0;
+}
+
+#stein-professions-overview-container {
+    margin-bottom: 6px;
+    background: #9a7753;
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    min-width: 400px;
+}
+
+#stein-professions-overview-icon {
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+}
+
+#stein-professions-overview-name {
+    color: #efba17;
+    border-bottom: 2px solid black;
+    width: 100%;
+    vertical-align: top;
+    padding-bottom: 3px;
+}
+
+#stein-professions-overview-level {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    text-shadow: none;
+    color: rgb(38, 33, 25);
+}
+
+#stein-professions-overview-experience {
+    text-shadow: none;
+    color: rgb(38, 33, 25);
+    border: 3px solid rgb(38, 33, 25);
+    border-radius: 6px;
+    text-align: center;
+    background: linear-gradient(90deg, #4ae9ef 70%, #dbbb83 70%);
+}
+
+#stein-professions-recipe-list {
+    margin-bottom: 6px;
+    height: 200px;
+    overflow-y: scroll;
+    background: #9a7753;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+}
+
+.stein-professions-recipe-entry-level {
+    width: 32px;
+    display: inline-block;
+}
+
+.stein-professions-recipe-entry-experience {
+    float: right;
+}
+
+.stein-professions-recipe-entry {
+    cursor: pointer;
+    padding: 2px 5px;
+    font-size: 18px;
+}
+
+.stein-professions-recipe-entry:hover {
+    background-color: #dbbb83;
+}
+
+.professions-level-high {
+    color: rgb(239, 23, 38);
+}
+
+.professions-level-medium {
+    color: rgb(239, 186, 23);
+}
+
+.professions-level-normal {
+    color: rgb(95, 216, 36);
+}
+
+#stein-professions-workbench, #stein-professions-gather {
+    margin-bottom: 6px;
+    background: #9a7753;
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+}
+
+#stein-professions-workbench-item-name, #stein-professions-gather-item-name {
+    color: #efba17;
+    border-bottom: 2px solid black;
+    width: 100%;
+    vertical-align: top;
+    padding-bottom: 3px;
+}
+
+#stein-professions-workbench-item-level, #stein-professions-gather-sub-text {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    text-shadow: none;
+    color: rgb(38, 33, 25);
+}
+
+#stein-professions-gather-description, #stein-professions-workbench-description {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    text-shadow: none;
+    color: rgb(38, 33, 25);
+}
+
+#stein-professions-workbench-production-time {
+    text-shadow: none;
+    color: rgb(38, 33, 25);
+    float: right;
+}
+
+#stein-professions-workbench-reward-item, #stein-professions-gather-item {
+    display: inline-block;
+    margin-left: -1px;
+}
+
+#stein-professions-workbench-resource-items {
+    margin-top: 3px;
+    margin-bottom: 5px;
+    margin-left: -3px;
+}
+
+.stein-professions-workbench-resource-item {
+    display: inline-block;
+    margin: 0 4px;
+}
+
+#stein-trade-window-frame {
+    margin-left: 10px;
+    display: inline-block;
+    float: right;
+    background: #bc9266;
+    padding: 8px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    touch-action: auto;
+    pointer-events: auto;
+}
+
+#stein-professions-workbench-craft-amount {
+    width: 45px;
+    padding-left: 5px;
+    height: 20px;
+}
+
+#stein-professions-workbench-craft-max {
+    margin-right: 4px;
+}
+
+#stein-professions-workbench-craft-progress {
+    text-shadow: none;
+    color: rgb(38, 33, 25);
+    border: 3px solid rgb(38, 33, 25);
+    border-radius: 6px;
+    text-align: center;
+    background: #dbbb83;
+    width: 193px;
+    display: inline-block;
+    height: 22px;
+    vertical-align: bottom;
+}
+
+#stein-moderator-panel-window-frame {
+    display: inline-block;
+    float: left;
+    background: #bc9266;
+    padding: 8px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    margin-right: 10px;
+    touch-action: auto;
+    pointer-events: auto;
+}
+
+#stein-moderator-panel-window-top {
+    color: rgb(182, 220, 135);
+    font-size: 26px;
+    text-align: center;
+    line-height: 26px;
+    margin: -3px;
+    height: 26px;
+    padding-bottom: 10px;
+}
+
+#stein-moderator-panel-window {
+    color: white;
+    user-select: none;
+    display: inline-block;
+    float: right;
+    background: #9a7753;
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+}
+
+#stein-moderator-panel-player-search {
+    display: inline-block;
+    margin-right: 3px;
+}
+
+#stein-moderator-panel-player-search-name {
+    width: 200px;
+}
+
+#stein-moderator-panel-main-view {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#stein-moderator-panel-player-info-container {
+    margin-bottom: 6px;
+    background: #9a7753;
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    min-width: 600px;
+}
+
+#stein-moderator-panel-mute-container, #stein-moderator-panel-ban-container {
+    margin-bottom: 6px;
+    background: #9a7753;
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    min-width: 600px;
+}
+
+#stein-moderator-panel-player-list {
+    margin-bottom: 6px;
+    height: 600px;
+    overflow-y: scroll;
+    background: #9a7753;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+}
+
+.stein-moderator-panel-player-entry-online {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-size: cover;
+}
+.stein-moderator-panel-player-entry-name {
+    display: inline-block;
+}
+.stein-moderator-panel-player-entry-level {
+    display: inline-block;
+}
+
+.stein-moderator-panel-player-entry-zone {
+    display: inline-block;
+    color: lightgray;
+}
+
+.stein-moderator-panel-player-entry {
+    cursor: pointer;
+    padding: 2px 5px;
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 1em;
+    width: 175px;
+    white-space: nowrap;
+}
+
+.stein-moderator-panel-player-entry:hover {
+    background-color: #dbbb83;
+}
+
+#stein-moderator-panel-note-list {
+    margin-bottom: 6px;
+    background: #9a7753;
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    width: 665px;
+    max-height: 100px;
+    overflow: auto;
+}
+
+.stein-moderator-panel-note-entry {
+    padding: 2px 5px;
+    font-size: 18px;
+}
+
+#stein-trade-window-frame {
+    padding: 10px;
+    margin-left: 10px;
+    display: inline-block;
+    float: right;
+}
+
+#stein-trade-window-top {
+    color: rgb(182, 220, 135);
+    font-size: 26px;
+    text-align: center;
+    line-height: 26px;
+    margin: -3px;
+    height: 26px;
+    padding-bottom: 10px;
+}
+
+#stein-trade-window {
+    width: 440px;
+    color: white;
+    display: inline-block;
+    float: right;
+    background: #9a7753;
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+}
+
+#stein-player-trade-cancel {
+    margin-right: 3px;
+}
+
+#stein-player-trade-window-frame {
+    display: inline-block;
+    float: right;
+    background: #bc9266;
+    padding: 8px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    touch-action: auto;
+    pointer-events: auto;
+}
+
+#stein-player-trade-window-top {
+    color: rgb(182, 220, 135);
+    font-size: 26px;
+    text-align: center;
+    line-height: 26px;
+    margin: -3px;
+    height: 26px;
+    padding-bottom: 10px;
+}
+
+#stein-player-trade-window {
+    width: 391px;
+    user-select: none;
+    display: inline-block;
+    float: right;
+    background: #9a7753;
+    color: #fff;
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+}
+
+#stein-player-trade-partner, #stein-player-trade-player {
+    display: inline-block;
+    width: 193px;
+}
+
+#stein-player-trade-partner-content, #stein-player-trade-player-content {
+    padding: 5px;
+    border: 3px solid rgb(38, 33, 25);
+    border-radius: 5px;
+    background-color: #9a7753;
+}
+
+#stein-player-trade-partner-content.stein-player-trade-content-locked,
+#stein-player-trade-player-content.stein-player-trade-content-locked {
+    border-color: #84b13d;
+    background-color: #a5df48;
+}
+
+#stein-player-trade-partner-gold, #stein-player-trade-player-gold {
+    text-align: right;
+    display: inline-block;
+    width: 100%;
+    line-height: 34px;
+}
+
+#stein-player-trade-player-gold-amount {
+    width: 140px;
+    text-align: right;
+}
+
+#stein-player-trade-player-items > .stein-item-inventory-slot, #stein-player-trade-partner-items > .stein-item-inventory-slot {
+    margin-right: 4px;
+}
+
+#stein-player-trade-player-items > .stein-item-inventory-slot:nth-child(3n), #stein-player-trade-partner-items > .stein-item-inventory-slot:nth-child(3n) {
+    margin-right: 0;
+}
+
+.stein-gold-icon {
+    width: 21px;
+    height: 21px;
+    background-image: url(/assets/images/currency_gold.png);
+    display: inline-block;
+}
+
+.stein-gem-icon {
+    width: 21px;
+    height: 21px;
+    background-image: url(/assets/images/currency_gem.png);
+    display: inline-block;
+}
+
+#stein-player-trade-player-actions {
+    text-align: right;
+    margin-top: 5px;
+}
+
+#stein-player-trade-player-name {
+    text-align: right;
+}
+
+#stein-player-trade-partner-name, #stein-player-trade-player-name {
+    padding: 0 2px 2px 2px;
+    font-size: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#stein-quest-log-window-frame {
+    margin-left: 10px;
+    background: #bc9266;
+    color: white;
+    user-select: none;
+    padding: 8px;
+    display: inline-block;
+    float: right;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    touch-action: auto;
+    pointer-events: auto;
+}
+
+#stein-quest-log-window-top {
+    color: rgb(182, 220, 135);
+    font-size: 26px;
+    text-align: center;
+    line-height: 26px;
+    margin: -3px;
+    height: 26px;
+    padding-bottom: 10px;
+}
+
+#stein-quest-log-window {
+    width: 500px;
+    color: white;
+    user-select: none;
+    display: inline-block;
+    float: right;
+    max-height: calc(100vh - 350px);
+    overflow: auto;
+    background: #9a7753;
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    font-size: 18px;
+}
+
+#stein-window-container-right {
+    z-index: 100;
+    position: absolute;
+    top: 128px;
+    right: 0px;
+    vertical-align: top;
+    transform-origin: right top;
+    touch-action: none;
+    pointer-events: none;
+}
+
+#stein-window-container-right-hidden {
+    z-index: -100;
+    position: absolute;
+    top: 137px;
+    right: 10px;
+    vertical-align: top;
+    display: none;
+    transform-origin: right top;
+}
+
+#stein-window-container-left {
+    z-index: 100;
+    position: absolute;
+    top: 128px;
+    vertical-align: top;
+    transform-origin: left top;
+    touch-action: none;
+    pointer-events: none;
+}
+
+#stein-window-container-left-hidden {
+    z-index: -100;
+    position: absolute;
+    top: 137px;
+    left: 10px;
+    vertical-align: top;
+    display: none;
+    transform-origin: left top;
+}
+
+#stein-tooltip {
+    z-index: 200;
+    position: absolute;
+    color: #262119;
+    user-select: none;
+    padding: 10px;
+    background-color: #dbbb83;
+    border: 4px solid #262119;
+    border-radius: 5px;
+}
+
+#stein-context-menu {
+    z-index: 199;
+    position: absolute;
+    color: #262119;
+    user-select: none;
+    background-color: #dbbb83;
+    border: 4px solid #262119;
+    border-radius: 5px;
+}
+
+.stein-context-menu-item {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.stein-context-menu-item:hover {
+    background-color: #eddca0;
+}
+
+.window-close-button {
+    cursor: pointer;
+    float: right;
+    font-size: 29px;
+    background-color: #ef1726;
+    border-radius: 5px;
+    border: 3px solid #262119;
+    width: 20px;
+    color: #262119;
+    height: 20px;
+    line-height: 18px;
+    box-shadow: inset 0px 0px 0 2px rgba(255, 234, 169, 0.3);
+}
+
+.stein-login-screen-logo {
+    position: relative;
+    left: 0px;
+    width: 100%;
+    background-size: cover;
+    background-attachment: scroll;
+    text-align: center;
+    max-height: 401px;
+    padding-top: 30px;
+}
+
+.stein-login-screen-logo-wrap {
+    overflow: hidden;
+    position: relative;
+    padding-top: 21%;
+    max-height: 401px;
+}
+
+.stein-login-logo {
+    height: 100%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+#stein-inventory-slots, #stein-inventory-quick-bar-slots, .quest-log-quest-reward-items, .stein-dialog-quest-start-items,
+.stein-dialog-quest-reward-items, .quest-log-quest-objectives-items, .stein-dialog-wave-dungeon-required-items,
+#stein-wave-dungeon-reward-list {
+    padding: 0;
+    margin: 0;
+    touch-action: auto;
+    pointer-events: auto;
+    max-height: calc(70vh - 290px);
+    overflow-y: auto;
+}
+
+#stein-inventory-slots li, #stein-inventory-quick-bar-slots li, .quest-log-quest-reward-items li, .stein-dialog-quest-start-items li,
+.stein-dialog-quest-reward-items li, .quest-log-quest-objectives-items li, .stein-dialog-wave-dungeon-required-items li,
+#stein-wave-dungeon-reward-list li {
+    display: inline-block;
+    list-style: none;
+    padding: 3px;
+}
+
+.quest-log-quest-reward-items {
+    margin-top: 5px;
+}
+
+.quest-log-quest-objectives-items {
+    display: inline-block;
+    position: absolute;
+    margin-top: -18px;
+    margin-left: 10px;
+}
+
+.quest-log-quest-objective-item {
+    height: 60px;
+    position: relative;
+    top: 20px;
+}
+
+.quest-log-quest-cancel {
+    float: right;
+}
+
+#stein-quest-log-cancel-container-frame, #stein-inventory-trash-confirm-container-frame {
+    position: absolute;
+    z-index: 198;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    touch-action: none;
+    pointer-events: none;
+}
+
+#stein-quest-log-cancel-content, #stein-inventory-trash-confirm-content {
+    background: #9a7753;
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    font-size: 22px;
+}
+
+#stein-quest-log-cancel-button-cancel, #stein-inventory-trash-confirm-button-trash {
+    margin-right: 3px;
+    margin-top: 5px;
+}
+
+#stein-quest-log-cancel-container, #stein-inventory-trash-confirm-container {
+    margin: auto;
+    top: 35%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    width: 400px;
+    touch-action: auto;
+    pointer-events: auto;
+    text-align: center;
+    background: #bc9266;
+    padding: 8px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    display: inline-block;
+}
+
+#stein-profession-reduce-time-container-frame {
+    position: absolute;
+    z-index: 198;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    touch-action: none;
+    pointer-events: none;
+}
+
+#stein-profession-reduce-time-content{
+    background: #9a7753;
+    color: #fff;
+    user-select: none;
+    padding: 5px;
+    display: inline-block;
+    float: right;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    font-size: 22px;
+}
+
+#stein-profession-reduce-time-button-cancel {
+    margin-right: 3px;
+    margin-top: 5px;
+}
+
+#stein-profession-reduce-time-container {
+    margin: auto;
+    top: 35%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    width: 500px;
+    touch-action: auto;
+    pointer-events: auto;
+    text-align: center;
+    background: #bc9266;
+    padding: 8px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    display: inline-block;
+}
+
+#stein-profession-reduce-time-premium-currency {
+    color: #4ae9ef;
+    padding-right: 1px;
+}
+
+#stein-item-amount-container-frame {
+    position: absolute;
+    z-index: 198;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    touch-action: none;
+    pointer-events: none;
+}
+
+#stein-item-amount-content {
+    background: #9a7753;
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+}
+
+#stein-item-amount-container {
+    margin: auto;
+    top: 35%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    width: 400px;
+    touch-action: auto;
+    pointer-events: auto;
+    text-align: center;
+    background: #bc9266;
+    padding: 8px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    display: inline-block;
+}
+
+#stein-item-amount-value {
+    width: 50px;
+    padding-left: 4px;
+}
+
+#stein-item-amount-cancel, #stein-item-amount-confirm, #stein-item-amount-all-confirm {
+    margin-top: 5px;
+    margin-right: 3px;
+}
+
+#stein-inventory-window hr {
+    margin: 4px 0 9px 0;
+}
+
+#stein-dialog-window-container {
+    z-index: 99;
+    position: absolute;
+    bottom: 92px;
+    width: 100%;
+    ransform-origin: bottom;
+    touch-action: none;
+    pointer-events: none;
+}
+
+#stein-dialog-window-frame {
+    z-index: 100;
+    background: #bc9266;
+    padding: 8px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    width: 614px;
+    margin: auto;
+    touch-action: auto;
+    pointer-events: auto;
+}
+
+#stein-dialog-window-top {
+    color: rgb(182, 220, 135);
+    font-size: 26px;
+    text-align: center;
+    line-height: 26px;
+    height: 26px;
+    padding-bottom: 7px;
+    margin-top: -3px;
+    margin-right: -3px;
+}
+
+#stein-dialog-window {
+    width: 600px;
+    margin: auto;
+    color: white;
+    background: #9a7753;
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+}
+
+#stein-dialog-source-name {
+    margin-bottom: 5px;
+}
+
+#stein-dialog-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.stein-dialog-item-header {
+    font-size: 1.3em;
+    color: #efba17;
+}
+
+.stein-dialog-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(/assets/images/npc_head_icons.png) -6px -6px;
+    vertical-align: bottom;
+    margin-right: 5px;
+
+}
+
+.stein-dialog-icon-accept, .stein-dialog-icon-finish {
+    background-position: -38px -38px;
+}
+
+.stein-dialog-icon-decline {
+    background-position: -6px -38px;
+}
+
+.stein-dialog-icon-shop, .stein-dialog-icon-trade {
+    background-position: -6px -6px;
+}
+
+.stein-dialog-icon-startquest {
+    background-position: -38px -6px;
+}
+
+.stein-dialog-icon-finishquest {
+    background-position: -102px -6px;
+}
+
+.stein-dialog-icon-highquest, .stein-dialog-icon-activequest {
+    background-position: -70px -6px;
+}
+
+.stein-dialog-icon-talkto {
+    background-position: -70px -38px;
+}
+
+.stein-dialog-icon-bank {
+    background-position: -102px -38px;
+}
+
+.stein-dialog-icon-premium-shop {
+    background-position: -6px -70px;
+}
+
+.stein-dialog-disabled-item {
+    color: #dad6cf;
+}
+
+.stein-dialog-disabled-item::before {
+    content: "» ";
+    visibility: hidden;
+}
+
+.stein-dialog-selectable-item {
+    cursor: pointer;
+    color: #d7f5b1;
+}
+
+.stein-dialog-selectable-item::before {
+    content: "» ";
+    visibility: hidden;
+}
+
+.stein-dialog-selectable-item:hover::before {
+    visibility: visible;
+}
+
+#stein-trade-window-sell-area {
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    background: #9a7753;
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+}
+
+#stein-trade-window-buyable-items {
+    padding: 0;
+    margin: 0;
+}
+
+#stein-trade-window-buyable-items li {
+    display: inline-block;
+    list-style: none;
+    width: 49%;
+}
+
+#stein-trade-window-buyable-items .stein-item-inventory-slot {
+    display: inline-block;
+}
+
+.stein-trade-window-buyable-item-decorator {
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: top;
+}
+
+.stein-trade-window-buyable-item-name {
+    white-space: nowrap;
+    max-width: 150px;
+    text-overflow: ellipsis;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0 2px;
+}
+
+.stein-trade-window-buyable-item-price-item {
+    font-size: 0.75em;
+    color: lightgray;
+    margin-left: 3px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.stein-trade-window-buyable-item-price-gold {
+    font-size: 0.75em;
+    color: #efba17;
+    margin-left: 3px;
+    display: inline-block;
+}
+
+.stein-trade-window-buyable-item-price-gems {
+    font-size: 0.75em;
+    color: #4ae9ef;
+    margin-left: 3px;
+    display: inline-block;
+}
+
+.stein-trade-window-buyable-item {
+    cursor: pointer;
+}
+
+.stein-tooltip-item-name {
+    float: left;
+    font-size: 24px;
+}
+
+.stein-tooltip-item-price {
+    float: right;
+    margin-left: 10px;
+    color: #ab6d00;
+}
+
+.stein-tooltip-item-activation-cost {
+    float: right;
+    margin-left: 10px;
+}
+
+.stein-tooltip-item-effect-bonus {
+    float: right;
+    margin-left: 10px;
+}
+
+.stein-tooltip-item-range {
+    float: right;
+    margin-left: 10px;
+}
+
+.stein-tooltip-item-level-container {
+    min-width: 140px;
+    margin-right: 10px;
+}
+
+.stein-tooltip-item-level-extended-container {
+    min-width: 250px;
+}
+
+.stein-tooltip-item-level {
+    opacity: 0.5;
+}
+
+.stein-tooltip-item-level-to-low {
+    color: #ef1726;
+}
+
+.stein-tooltip-item-hit-chance {
+    margin-left: 5px;
+    opacity: 0.5;
+}
+
+.stein-tooltip-item-hit-chance-very-high {
+    color: #007300;
+}
+
+.stein-tooltip-item-hit-chance-high {
+    color: #46731e;
+}
+
+.stein-tooltip-item-hit-chance-fair {
+    color: #72732c;
+}
+
+.stein-tooltip-item-hit-chance-medium {
+    color: #73551a;
+}
+
+.stein-tooltip-item-hit-chance-low {
+    color: #733919;
+}
+
+.stein-tooltip-item-hit-chance-very-low {
+    color: #731108;
+}
+
+.stein-tooltip-required-skill-unavailable {
+    color: #ef1726;
+}
+
+.stein-tooltip-profession-level {
+    float: right;
+    margin-left: 10px;
+}
+
+.stein-tooltip-profession-level-to-high {
+    color: #ef1726;
+}
+
+.stein-tooltip-item-type {
+    float: right;
+    opacity: 0.5;
+    margin-left: 10px;
+}
+
+.stein-tooltip-is-bound {
+    opacity: 0.5;
+}
+
+.stein-tooltip-item-properties {
+    list-style: none;
+    padding: 0;
+    margin: 5px;
+}
+
+.stein-tooltip-item-description {
+    opacity: 0.5;
+    font-style: italic;
+    max-width: 300px;
+}
+
+.stein-tooltip-inline-item {
+    margin: 3px 0;
+    border: 4px solid #262119;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.stein-tooltip-item-damage-points {
+    float: right;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.stein-tooltip-item-damage-point {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    margin: 1px;
+}
+
+.stein-inventory-damage-point {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    margin-top: 32px;
+    position: absolute;
+    z-index: 100;
+    margin-left: -2px;
+}
+
+.stein-tooltip-item-damage-point-truedamage, .stein-inventory-damage-point-truedamage {
+    background-image: url(/assets/images/icons/damage-type-truedamage.png);
+}
+
+.stein-tooltip-item-damage-point-physical, .stein-inventory-damage-point-physical {
+    background-image: url(/assets/images/icons/damage-type-physical.png);
+}
+
+.stein-tooltip-item-damage-point-fire, .stein-inventory-damage-point-fire {
+    background-image: url(/assets/images/icons/damage-type-fire.png);
+}
+
+.stein-tooltip-item-damage-point-water, .stein-inventory-damage-point-water {
+    background-image: url(/assets/images/icons/damage-type-water.png);
+}
+
+.stein-tooltip-item-damage-point-earth, .stein-inventory-damage-point-earth {
+    background-image: url(/assets/images/icons/damage-type-earth.png);
+}
+
+.stein-tooltip-item-damage-point-holy, .stein-inventory-damage-point-holy {
+    background-image: url(/assets/images/icons/damage-type-holy.png);
+}
+
+.stein-tooltip-item-damage-point-death, .stein-inventory-damage-point-death {
+    background-image: url(/assets/images/icons/damage-type-death.png);
+}
+
+.stein-tooltip-item-damage-point-soul, .stein-inventory-damage-point-soul {
+    background-image: url(/assets/images/icons/damage-type-soul.png);
+}
+
+.clear {
+    clear: both;
+}
+
+.quest-log-quest-name {
+    margin: 5px 0;
+    font-size: 22px;
+    color: #efba17;
+}
+
+.quest-log-quest-quest-description {
+    margin: 0;
+}
+
+ul.quest-log-quest-objectives {
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.quest-log-quest-reward-container {
+    margin-bottom: 15px;
+}
+
+.stein-life-bar {
+    position: absolute;
+    height: 6px;
+    width: 50px;
+    z-index: 51;
+    pointer-events: none;
+    border: 1px solid rgba(38, 33, 25, 0.6);
+}
+
+.stein-scrolling-text {
+    pointer-events: none;
+    position: relative;
+    left: -50%;
+    top: -50%;
+    z-index: 50;
+    font-size: 1.3em;
+}
+
+.stein-scrolling-text-container {
+    pointer-events: none;
+    position: absolute;
+}
+
+#stein-payment-success-overlay-content, #stein-processing-payment-overlay-content,
+#stein-initializing-payment-overlay-content, #stein-initializing-payment-overlay-content,
+#stein-generic-dialog-overlay-content {
+    text-align: center;
+    font-size: 22px;
+    background: #9a7753;
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+}
+
+#stein-party-invite-button {
+    margin-right: 4px;
+}
+
+#stein-payment-success-ok {
+    margin-left: 0px;
+    margin-top: 10px;
+}
+
+#stein-generic-dialog-buttons > button {
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-right: 5px;
+    min-width: 75px;
+}
+
+.stein-dropped-item-container {
+    position: absolute;
+}
+
+.stein-scrolling-text-damage-player {
+    color: #f5ebd9;
+}
+
+.stein-scrolling-text-damage-enemy {
+    color: #ff6e3e;
+}
+
+.stein-scrolling-text-heal-player {
+    color: #74ff48;
+}
+
+.stein-scrolling-text-heal-enemy {
+    color: #2dc025;
+}
+
+.stein-scrolling-text-experience {
+    color: #3591ff;
+}
+
+.stein-scrolling-text-level-up {
+    color: #ffdf36;
+}
+
+.stein-scrolling-text-threat {
+    color: #ffdf36;
+}
+
+.stein-scrolling-text-entity-effect {
+    color: #ffdf36;
+}
+
+.stein-scrolling-text-crit {
+    animation-name: stein-scrolling-text-crit-animation;
+    animation-duration: 1s;
+}
+
+.stein-scrolling-text-damage-player.stein-scrolling-text-crit {
+    color: #ffc35a;
+}
+
+.stein-scrolling-text-damage-enemy.stein-scrolling-text-crit {
+    color: #ff3958;
+}
+
+.stein-scrolling-text-heal-player.stein-scrolling-text-crit {
+    color: #3bffc0;
+}
+
+.stein-scrolling-text-heal-enemy.stein-scrolling-text-crit {
+    color: #2dc025;
+}
+
+.stein-dropped-item {
+    position: absolute;
+    left: -16px;
+    top: -16px;
+    height: 48px;
+    width: 48px;
+    z-index: 40;
+    cursor: pointer;
+    -webkit-background-size: contain;
+    animation-name: stein-dropped-item-animation;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+    background-size: contain;
+}
+
+.stein-dropped-item-common {
+        -webkit-filter: drop-shadow(3px 0px 0 rgba(228,205,79,0.75))
+                        drop-shadow(-3px 0px 0 rgba(228,205,79,0.75))
+                        drop-shadow(0px -3px 0 rgba(228,205,79,0.75))
+                        drop-shadow(0px 3px 0 rgba(228,205,79,0.75));
+        filter: drop-shadow(3px 0px 0 rgba(228,205,79,0.75))
+                drop-shadow(-3px 0px 0 rgba(228,205,79,0.75))
+                drop-shadow(0px -3px 0 rgba(228,205,79,0.75))
+                drop-shadow(0px 3px 0 rgba(228,205,79,0.75));
+}
+
+.stein-dropped-item-uncommon {
+        -webkit-filter: drop-shadow(3px 0px 0 rgba(26,128,13,0.75))
+                        drop-shadow(-3px 0px 0 rgba(26,128,13,0.75))
+                        drop-shadow(0px -3px 0 rgba(26,128,13,0.75))
+                        drop-shadow(0px 3px 0 rgba(26,128,13,0.75));
+        filter: drop-shadow(3px 0px 0 rgba(26,128,13,0.75))
+                drop-shadow(-3px 0px 0 rgba(26,128,13,0.75))
+                drop-shadow(0px -3px 0 rgba(26,128,13,0.75))
+                drop-shadow(0px 3px 0 rgba(26,128,13,0.75));
+}
+
+.stein-dropped-item-rare {
+        -webkit-filter: drop-shadow(3px 0px 0 rgba(18,82,179,0.75))
+                        drop-shadow(-3px 0px 0 rgba(18,82,179,0.75))
+                        drop-shadow(0px -3px 0 rgba(18,82,179,0.75))
+                        drop-shadow(0px 3px 0 rgba(18,82,179,0.75));
+        filter: drop-shadow(3px 0px 0 rgba(18,82,179,0.75))
+                drop-shadow(-3px 0px 0 rgba(18,82,179,0.75))
+                drop-shadow(0px -3px 0 rgba(18,82,179,0.75))
+                drop-shadow(0px 3px 0 rgba(18,82,179,0.75));
+}
+
+.stein-dropped-item-epic {
+        -webkit-filter: drop-shadow(3px 0px 0 rgba(184,20,204,0.75))
+                        drop-shadow(-3px 0px 0 rgba(184,20,204,0.75))
+                        drop-shadow(0px -3px 0 rgba(184,20,204,0.75))
+                        drop-shadow(0px 3px 0 rgba(184,20,204,0.75));
+        filter: drop-shadow(3px 0px 0 rgba(184,20,204,0.75))
+                drop-shadow(-3px 0px 0 rgba(184,20,204,0.75))
+                drop-shadow(0px -3px 0 rgba(184,20,204,0.75))
+                drop-shadow(0px 3px 0 rgba(184,20,204,0.75));
+}
+
+.stein-dropped-item-legendary {
+        -webkit-filter: drop-shadow(3px 0px 0 rgba(204,20,20,0.75))
+                        drop-shadow(-3px 0px 0 rgba(204,20,20,0.75))
+                        drop-shadow(0px -3px 0 rgba(204,20,20,0.75))
+                        drop-shadow(0px 3px 0 rgba(204,20,20,0.75));
+        filter: drop-shadow(3px 0px 0 rgba(204,20,20,0.75))
+                drop-shadow(-3px 0px 0 rgba(204,20,20,0.75))
+                drop-shadow(0px -3px 0 rgba(204,20,20,0.75))
+                drop-shadow(0px 3px 0 rgba(204,20,20,0.75));
+}
+
+.stein-dropped-item-background {
+    position: absolute;
+    left: -25px;
+    top: -25px;
+    height: 50px;
+    width: 50px;
+    z-index: 39;
+}
+
+.stein-login-screen-bottom-bar-box {
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    touch-action: none;
+}
+
+.stein-login-screen-bottom-bar-box-container {
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    height: 80%;
+    background: #bc9266;
+    padding: 8px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    max-width: 600px;
+    max-height: 700px;
+}
+
+.stein-login-screen-bottom-bar-container {
+    background-color: rgb(176, 137, 96);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 10px;
+    border: 4px solid rgb(237, 220, 160);
+    padding: 6px;
+    margin-bottom: 30px;
+    color: #eeeeec;
+    box-shadow: 0 0 0 5px rgb(38, 33, 25);
+    font-size: 24px;
+    max-height: 100%;
+    min-height: 60%;
+}
+
+.stein-login-screen-content-box {
+    display: flex;
+    margin: auto;
+    color: #eeeeec;
+    font-size: 24px;
+    height: calc(100% - 24px);
+    width: 100%;
+}
+
+.stein-login-screen-content-box-screenshots {
+    display: flex;
+    margin: auto;
+    max-height: 100%;
+    color: #eeeeec;
+    font-size: 24px;
+    min-height: 80%;
+    height: calc(100% - 24px);
+}
+
+.stein-login-screen-img {
+    position: relative;
+    vertical-align: top;
+    display: inline-table;
+    height: 48px;
+    width: 48Px;
+    border: 2px solid #eddca0;
+    border-radius: 3px;
+    max-height: 48px;
+    max-width: 48px;
+    background-color: #ccae7a;
+    box-shadow: 0px 0px 0 2px #262119;
+}
+
+#stein-login-screen-register-character-gender-male {
+    display: none;
+}
+
+.stein-login-screen-register-checkbox-label-male {
+    background-size: auto 100%;
+    width: 30px;
+    height: 30px;
+    background: url(/assets/images/gender_male_checkbox.png) no-repeat left center;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#stein-login-screen-register-character-gender-male:checked + .stein-login-screen-register-checkbox-label-male {
+    background-position: right center;
+}
+
+#stein-login-screen-register-character-gender-female {
+    display: none;
+}
+
+.stein-login-screen-register-checkbox-label-female {
+    background-size: auto 100%;
+    width: 30px;
+    height: 30px;
+    background: url(/assets/images/gender_female_checkbox.png) no-repeat left center;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#stein-login-screen-register-character-gender-female:checked + .stein-login-screen-register-checkbox-label-female {
+    background-position: right center;
+}
+
+#stein-login-screen-register-accept-tos {
+    display: none;
+}
+
+#stein-options-show-players-life-bar-not-full {
+    display: none;
+}
+
+#stein-options-show-players-life-bar-full {
+    display: none;
+}
+
+#stein-options-show-enemies-life-bar-not-full {
+    display: none;
+}
+
+#stein-options-show-enemies-life-bar-full {
+    display: none;
+}
+
+#stein-options-show-damage-player {
+    display: none;
+}
+
+#stein-options-show-damage-enemy {
+    display: none;
+}
+
+#stein-options-show-damage-self {
+    display: none;
+}
+
+#stein-options-show-heal-player {
+    display: none;
+}
+
+#stein-options-show-heal-enemy {
+    display: none;
+}
+
+#stein-options-show-heal-self {
+    display: none;
+}
+
+#stein-options-sound-music-muted, #stein-options-sound-overall-muted, #stein-options-sound-effect-muted,
+#stein-login-screen-sound-muted {
+    display: none;
+}
+
+#stein-options-chat-font-size {
+    width: 70px;
+}
+
+.checkbox-label {
+    background-size: auto 100%;
+    width: 26px;
+    height: 26px;
+    background: url(/assets/images/checkbox_26.png) no-repeat left center;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+    cursor: pointer;
+}
+
+.checkbox-sound-mute-label {
+    background-size: auto 100%;
+    width: 26px;
+    height: 26px;
+    background: url(/assets/images/checkbox_sound.png) no-repeat left center;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+    cursor: pointer;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox]:checked + .checkbox-label {
+    background-position: right center;
+}
+
+#stein-login-screen-register-accept-tos:checked + .checkbox-label {
+    background-position: right center;
+}
+
+#stein-options-show-players-life-bar-not-full:checked + .checkbox-label {
+    background-position: right center;
+}
+
+#stein-options-show-players-life-bar-full:checked + .checkbox-label {
+    background-position: right center;
+}
+
+#stein-options-show-enemies-life-bar-not-full:checked + .checkbox-label {
+    background-position: right center;
+}
+
+#stein-options-show-enemies-life-bar-full:checked + .checkbox-label {
+    background-position: right center;
+}
+
+#stein-options-show-damage-player:checked + .checkbox-label {
+    background-position: right center;
+}
+
+#stein-options-show-damage-enemy:checked + .checkbox-label {
+    background-position: right center;
+}
+
+#stein-options-show-damage-self:checked + .checkbox-label {
+    background-position: right center;
+}
+
+#stein-options-show-heal-player:checked + .checkbox-label {
+    background-position: right center;
+}
+
+#stein-options-show-heal-enemy:checked + .checkbox-label {
+    background-position: right center;
+}
+
+#stein-options-show-heal-self:checked + .checkbox-label {
+    background-position: right center;
+}
+
+#stein-options-sound-music-muted:checked + .checkbox-label,
+#stein-options-sound-overall-muted:checked + .checkbox-label,
+#stein-options-sound-effect-muted:checked + .checkbox-label,
+#stein-login-screen-sound-muted:checked + .checkbox-sound-mute-label {
+    background-position: right center;
+}
+
+
+.stein-shop-entry {
+    display: inline-block;
+    width: 200px;
+    height: 326px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    background: #dbbb83;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    margin-right: 8px;
+}
+
+.stein-shop-entry-news {
+    display: inline-block;
+    width: 200px;
+    height: 286px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    background: #dbbb83;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    margin-right: 8px;
+}
+
+.stein-shop-big-entry {
+    display: inline-block;
+    width: 413px;
+    height: 326px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    background: #dbbb83;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    margin-right: 8px;
+}
+
+.stein-shop-entry-info {
+    display: inline-block;
+    width: 200px;
+    height: 326px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    padding: 3px;
+    margin-right: 5px;
+}
+
+.stein-shop-entry-title {
+     color: #b6dc87;
+     font-size: 24px;
+     text-align: center;
+     padding-top: 5px;
+}
+
+.stein-shop-entry-title-info {
+ color: #efba17;
+ font-size: 24px;
+ padding-top: 5px;
+}
+
+#stein-store-category-list {
+    width: 100%;
+    overflow: auto;
+    margin-bottom: 26px;
+}
+
+.stein-stats-title {
+    color: #efba17;
+    font-size: 22px;
+    padding-top: 4px;
+    text-align: center;
+}
+
+.stat-name {
+
+}
+
+.stat-value {
+    text-align: right;
+}
+
+.stein-shop-entry-description {
+    font-size: 16px;
+    text-align: center;
+}
+
+.stein-shop-entry > .stein-shop-entry-description {
+    height: 40px;
+}
+
+.stein-shop-entry-image {
+    width: 144px;
+    height: 144px;
+    display: block;
+    margin: auto;
+    border: 3px solid rgb(38, 33, 25);
+    border-radius: 5px;
+}
+
+.stein-shop-entry-price {
+    color: #4ae9ef;
+    font-size: 24px;
+    text-align: center;
+    padding-top: 3px;
+    padding-bottom: 6px;
+}
+
+.stein-shop-entry-button {
+    display: block;
+    margin: auto;
+    background-color: #b6dc87;
+}
+
+.stein-error-button {
+    display: block;
+    margin: auto;
+    background-color: #b6dc87;
+    margin-top: 10px;
+}
+
+.stein-shop-entry-button-disabled {
+    display: block;
+    margin: auto;
+    cursor: default;
+    background-color: #948c84;
+}
+
+.stein-shop-entry-button-disabled:hover {
+    background-color: #948c84;
+}
+
+#stein-inventory-gems-container {
+    display: flex;
+}
+
+#stein-inventory-gold-container {
+    display: flex;
+    padding-top: 2px;
+}
+
+#stein-inventory-premium-container {
+    display: flex;
+    padding-top: 2px;
+}
+
+#stein-shop-window-premium-container {
+    display: flex;
+    width: 120px;
+}
+
+#stein-trade-gold-container {
+    display: inline-block;
+    padding-top: 10px;
+}
+
+#stein-trade-gems-container {
+    display: inline-block;
+    padding-top: 10px;
+    padding-right: 6px;
+}
+
+#stein-inventory-gems {
+    color: #4ae9ef;
+    text-align: right;
+    width: 100px;
+    padding-right: 6px;
+    font-size: 18px;
+}
+
+#stein-inventory-gold {
+    color: #efba17;
+    text-align: right;
+    width: 100px;
+    padding-right: 6px;
+    font-size: 18px;
+}
+
+#stein-inventory-premium, #stein-shop-window-premium {
+    color: #54ef17;
+    text-align: right;
+    width: 100px;
+    padding-right: 6px;
+    font-size: 18px;
+}
+
+#stein-hub-ranking-profession-level-types {
+    margin-left: 3px;
+}
+
+#stein-trade-gold {
+    color: #efba17;
+    text-align: right;
+    width: 100%;
+    padding-right: 2px;
+    font-size: 18px;
+}
+
+#stein-trade-gems {
+    color: #4ae9ef;
+    text-align: right;
+    width: 100%;
+    padding-right: 2px;
+    font-size: 18px;
+}
+
+.stein-quest-reward-gold, .stein-wave-dungeon-reward-gold {
+    color: #efba17;
+    padding-right: 3px;
+}
+
+.stein-quest-reward-experience, .stein-wave-dungeon-reward-experience {
+    color: #3591ff;
+}
+
+#stein-trade-window-sell-all-trash {
+    margin-top: 9px;
+    margin-right: 5px;
+}
+
+#stein-trade-window-buy-gems {
+    margin-top: 9px;
+    margin-right: 5px;
+}
+
+#stein-trade-window-buy-pagination {
+    float: right;
+}
+
+.stein-hub-ranking-pagination {
+    float: right;
+    margin-right: 3px;
+    margin-top: 4px;
+}
+
+#stein-hub-ranking-page-display {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#stein-hub-ranking-wave-dungeon-strengths {
+    margin-left: 3px;
+}
+
+.stein-hub-ranking-profession-level-type {
+    margin-right: 8px;
+}
+
+#stein-hub-ranking-wave-dungeon-strength-1, #stein-hub-ranking-wave-dungeon-strength-2, #stein-hub-ranking-wave-dungeon-strength-3,
+#stein-hub-ranking-wave-dungeon-strength-4{
+    margin-right: 5px;
+}
+
+#stein-hub-ranking-wave-dungeon-table, #stein-hub-ranking-level-table,
+#stein-hub-ranking-blocks-traveled-table, #stein-hub-ranking-damage-done-table,
+#stein-hub-ranking-damage-received-table, #stein-hub-ranking-healing-done-table,
+#stein-hub-ranking-healing-received-table, #stein-hub-ranking-enemies-killed-table,
+#stein-hub-ranking-highest-damage-table, #stein-hub-ranking-highest-heal-table,
+#stein-hub-ranking-dungeon, #stein-hub-ranking-profession-level-table {
+    font-size: 20px;
+    border: 3px solid rgb(38, 33, 25);
+    border-radius: 5px;
+    margin-bottom: 6px;
+}
+
+#stein-hub-ranking-wave-dungeon-table-header, #stein-hub-ranking-level-table-header,
+#stein-hub-ranking-blocks-traveled-table-header, #stein-hub-ranking-damage-done-table-header,
+#stein-hub-ranking-damage-received-table-header, #stein-hub-ranking-healing-done-table-header,
+#stein-hub-ranking-healing-received-table-header, #stein-hub-ranking-enemies-killed-table-header,
+#stein-hub-ranking-highest-damage-table-header, #stein-hub-ranking-highest-heal-table-header,
+#stein-hub-ranking-dungeon-table-header, #stein-hub-ranking-profession-level-table-header {
+    border-bottom: 3px solid #262119;
+    padding: 3px;
+    background-color: rgb(237, 220, 160);
+    padding-left: 6px;
+}
+
+.stein-hub-ranking-wave-dungeon-table-entry, .stein-hub-ranking-level-table-entry,
+.stein-hub-ranking-blocks-traveled-table-entry, .stein-hub-ranking-damage-done-table-entry,
+.stein-hub-ranking-damage-received-table-entry, .stein-hub-ranking-healing-done-table-entry,
+.stein-hub-ranking-healing-received-table-entry, .stein-hub-ranking-enemies-killed-table-entry,
+.stein-hub-ranking-highest-damage-table-entry, .stein-hub-ranking-highest-heal-table-entry,
+.stein-hub-ranking-dungeon-table-entry, .stein-hub-ranking-profession-level-table-entry {
+    padding: 3px;
+    padding-left: 6px;
+}
+
+.stein-hub-ranking-wave-dungeon-table-entry:nth-of-type(even), .stein-hub-ranking-level-table-entry:nth-of-type(even),
+.stein-hub-ranking-blocks-traveled-table-entry:nth-of-type(even), .stein-hub-ranking-damage-done-table-entry:nth-of-type(even),
+.stein-hub-ranking-damage-received-table-entry:nth-of-type(even), .stein-hub-ranking-healing-done-table-entry:nth-of-type(even),
+.stein-hub-ranking-healing-received-table-entry:nth-of-type(even), .stein-hub-ranking-enemies-killed-table-entry:nth-of-type(even),
+.stein-hub-ranking-highest-damage-table-entry:nth-of-type(even), .stein-hub-ranking-highest-heal-table-entry:nth-of-type(even),
+.stein-hub-ranking-dungeon-table-entry:nth-of-type(even), .stein-hub-ranking-profession-level-table-entry:nth-of-type(even) {
+    background-color: #dbbb83;
+}
+
+.stein-hub-ranking-wave-dungeon-rank, .stein-hub-ranking-level-rank,
+.stein-hub-ranking-blocks-traveled-rank, .stein-hub-ranking-damage-done-rank,
+.stein-hub-ranking-damage-received-rank, .stein-hub-ranking-healing-done-rank,
+.stein-hub-ranking-healing-received-rank, .stein-hub-ranking-enemies-killed-rank,
+.stein-hub-ranking-highest-damage-rank, .stein-hub-ranking-highest-heal-rank,
+.stein-hub-ranking-dungeon-rank, .stein-hub-ranking-profession-level-rank {
+    display: inline-block;
+    width: 10%
+}
+
+.stein-hub-ranking-wave-dungeon-player, .stein-hub-ranking-level-player,
+.stein-hub-ranking-blocks-traveled-player, .stein-hub-ranking-damage-done-player,
+.stein-hub-ranking-damage-received-player, .stein-hub-ranking-healing-done-player,
+.stein-hub-ranking-healing-received-player, .stein-hub-ranking-enemies-killed-player,
+.stein-hub-ranking-highest-damage-player, .stein-hub-ranking-highest-heal-player,
+.stein-hub-ranking-dungeon-player, .stein-hub-ranking-dungeon-time,
+.stein-hub-ranking-profession-level-player {
+    display: inline-block;
+    width: 20%
+}
+
+.stein-hub-ranking-wave-dungeon-wave, .stein-hub-ranking-level-level,
+.stein-hub-ranking-blocks-traveled-blocks, .stein-hub-ranking-damage-done-damage,
+.stein-hub-ranking-damage-received-damage, .stein-hub-ranking-healing-done-healing,
+.stein-hub-ranking-healing-received-healing, .stein-hub-ranking-enemies-killed-amount,
+.stein-hub-ranking-highest-damage-damage, .stein-hub-ranking-highest-heal-heal,
+.stein-hub-ranking-wave-dungeon-time, .stein-hub-ranking-profession-level-level {
+    display: inline-block;
+    width: 10%
+}
+
+#stein-hub-friend-list-list {
+    width: 400px;
+    margin-top: 10px;
+    background-color: #dbbc83;
+    border: 3px solid rgb(38, 33, 25);
+    border-radius: 5px;
+    padding: 6px;
+    margin-bottom: 6px;
+}
+
+.stein-hub-friend-list-entry {
+    border: 3px solid rgb(38, 33, 25);
+    border-radius: 5px;
+    padding: 3px;
+    margin-bottom: 6px;
+    background-color: #eddca0;
+    font-size: 20px;
+    padding-left: 6px;
+}
+
+.friend-list-entry-options {
+    float: right;
+    margin-top: -3px;
+    margin-right: -3px;
+    height: 28px;
+    border-radius: 0 3px 3px 0;
+}
+
+.friend-list-entry-state {
+    font-size: 13px;
+    padding-left: 5px;
+}
+
+.friend-list-entry-state-online > .friend-list-entry-state {
+    color: limegreen;
+}
+
+.friend-list-entry-state-offline > .friend-list-entry-state {
+    color: #ff7474;
+}
+
+.friend-list-entry-state-unknown > .friend-list-entry-state {
+    color: lightgray;
+}
+
+#stein-zone-overlay {
+    position: absolute;
+    width: 100%;
+    top: 30%;
+    touch-action: none;
+    z-index: 3;
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.75s;
+}
+
+#stein-root-zone-name {
+    font-size: 40px;
+}
+
+#stein-zone-name {
+    font-size: 30px
+}
+
+#stein-zone-level-range {
+    font-size: 30px
+}
+
+#stein-map-container {
+    width: 100%;
+    height: 100%;
+}
+
+#stein-map-root-zone-name {
+    text-align: center;
+    width: 100%;
+    position: relative;
+    z-index: 5;
+    top: 10px;
+    font-size: 40px;
+    height: 0;
+}
+
+#stein-map-zone-name {
+    text-align: center;
+    width: 100%;
+    position: relative;
+    z-index: 5;
+    top: 50px;
+    font-size: 30px;
+    height: 0;
+}
+
+#stein-map-compass {
+    z-index: 5;
+    height: 0;
+    bottom: 188px;
+    position: absolute;
+}
+
+#stein-map-buttons {
+    z-index: 5;
+    position: absolute;
+    right: 20px;
+    top: 50px;
+}
+
+#stein-map-button-zoom-in, #stein-map-button-zoom-out {
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    font-size: 30px;
+}
+
+#stein-map-marker-player {
+    background: url(/assets/images/icons/map-marker-player.png);
+}
+
+.stein-map-marker-generic {
+    background: url(/assets/images/icons/map-marker-generic.png);
+}
+
+.stein-map-marker-cave-entrance {
+    background: url(/assets/images/icons/map-marker-cave-entrance.png);
+}
+
+.stein-map-marker-dungeon-entrance {
+    background: url(/assets/images/icons/map-marker-dungeon-entrance.png);
+}
+
+.stein-map-marker-village {
+    background: url(/assets/images/icons/map-marker-village.png);
+}
+
+.stein-map-marker-party-member {
+    background: url(/assets/images/icons/map-marker-party-member.png);
+}
+
+.stein-map-marker-trader {
+    background: url(/assets/images/icons/map-marker-trader.png);
+}
+
+.stein-map-marker-graveyard {
+    background: url(/assets/images/icons/map-marker-grave.png);
+}
+
+.stein-map-marker-prof-armorsmith {
+    background: url(/assets/images/icons/map-marker-prof-armorsmith.png);
+}
+
+.stein-map-marker-prof-enchanter {
+    background: url(/assets/images/icons/map-marker-prof-enchanter.png);
+}
+
+.stein-map-marker-prof-herbalism {
+    background: url(/assets/images/icons/map-marker-prof-herbalism.png);
+}
+
+.stein-map-marker-prof-leatherworking {
+    background: url(/assets/images/icons/map-marker-prof-leatherworking.png);
+}
+
+.stein-map-marker-prof-lumbering {
+    background: url(/assets/images/icons/map-marker-prof-lumbering.png);
+}
+
+.stein-map-marker-prof-mining {
+    background: url(/assets/images/icons/map-marker-prof-mining.png);
+}
+
+.stein-map-marker-prof-tailor {
+    background: url(/assets/images/icons/map-marker-prof-tailor.png);
+}
+
+.stein-map-marker-prof-weaponsmith {
+    background: url(/assets/images/icons/map-marker-prof-weaponsmith.png);
+}
+
+.stein-map-marker-bank {
+    background: url(/assets/images/icons/map-marker-bank.png);
+}
+
+.stein-map-marker {
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    margin-left: -8px;
+    position: absolute;
+    image-rendering: pixelated;
+    z-index: 2;
+}
+
+.stein-need-or-greed-window {
+    width: 250px;
+    height: 75px;
+    margin: auto;
+    color: white;
+    touch-action: auto;
+    pointer-events: auto;
+    background: #bc9266;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    padding: 10px 8px 8px;
+}
+
+.stein-need-or-greed {
+    margin-bottom: 10px;
+}
+
+.need-or-greed-item {
+    display: inline-block;
+}
+
+.need-or-greed-item-name {
+    line-height: 25px;
+    width: 175px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0 2px;
+    padding-bottom: 3px;
+}
+
+.need-or-greed-info {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 5px;
+}
+
+.need-or-greed-time {
+    border: 4px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    height: 5px;
+    margin-bottom: 5px;
+    margin-top: 0;
+    display: inline-block;
+    width: 217px;
+}
+
+.need-or-greed-pass {
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    line-height: 0;
+    top: -6px;
+    position: relative;
+    margin-left: 4px;
+    background-color: #ef1726;
+}
+
+#stein-cookie-disclaimer-container {
+    position: absolute;
+    width: 400px;
+    bottom: 150px;
+    right: 10px;
+    z-index: 200;
+    background-color: rgb(176, 137, 96);
+    color: #eeeeec;
+    background: #bc9266;
+    padding: 8px;
+    box-shadow: inset 0px 0px 0 3px rgba(255, 234, 169, 0.5);
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+}
+
+@keyframes stein-dropped-item-animation {
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes stein-spinner-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes stein-scrolling-text-crit-animation {
+    0% {
+        font-size: 20px;
+    }
+    10% {
+        font-size: 40px;
+    }
+    100% {
+        font-size: 20px;
+    }
+}
+
+body {
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated;
+    image-rendering: optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
+}
+
+@media screen and (min-width: 1px) {.stein-scale {transform: scale(0.5);}}
+@media screen and (min-width: 990px) {.stein-scale {transform: scale(0.6);}}
+@media screen and (min-width: 1160px) {.stein-scale {transform: scale(0.7);}}
+@media screen and (min-width: 1320px) {.stein-scale {transform: scale(0.8);}}
+@media screen and (min-width: 1490px) {.stein-scale {transform: scale(0.9);}}
+@media screen and (min-width: 1655px) {.stein-scale {transform: scale(1.0);}}

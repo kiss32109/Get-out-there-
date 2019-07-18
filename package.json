@@ -1,0 +1,51 @@
+{
+    "title": "",
+    "name": "",
+    "version": "0.0.1",
+    "scripts": {
+        "start": "node ./bin/www"
+    },
+    "description": "A full page image background with fixed bottom navigation HTML template built with Bootstrap",
+    "keywords": [
+        "css",
+        "sass",
+        "html",
+        "responsive",
+        "theme",
+        "template"
+    ],
+    "homepage": "https://startbootstrap.com/template-overviews/the-big-picture",
+    "bugs": {
+        "url": "https://github.com/BlackrockDigital/startbootstrap-the-big-picture/issues",
+        "email": "feedback@startbootstrap.com"
+    },
+    "license": "MIT",
+    "author": "Start Bootstrap",
+    "contributors": [
+        "David Miller (http://davidmiller.io/)"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/BlackrockDigital/startbootstrap-the-big-picture.git"
+    },
+    "dependencies": {
+        "bootstrap": "4.3.1",
+        "cookie-parser": "^1.4.4",
+        "debug": "~2.6.9",
+        "ejs": "^2.6.1",
+        "express": "^4.17.1",
+        "express-session": "^1.16.1",
+        "http-errors": "~1.6.3",
+        "jquery": "3.4.1",
+        "morgan": "^1.9.1",
+        "socket.io": "^2.2.0"
+    },
+    "devDependencies": {
+        "browser-sync": "2.26.5",
+        "del": "^4.1.1",
+        "gulp": "4.0.2",
+        "gulp-nodemon": "^2.4.2",
+        "merge-stream": "^1.0.1",
+        "nodemon": "^1.19.1"
+    }
+}

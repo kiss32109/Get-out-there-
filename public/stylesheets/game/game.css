@@ -1,0 +1,989 @@
+/*
+  GAME PAGE CSS 목차
+  1. COMMON
+  2. USER INTERFACE
+    2-1. CHAT
+    2-2. QUICK BAR
+    2-3. PLAYER STATUS
+    2-4. PARTY STATUS
+    2-5. TARGET STATUS
+    2-6. DIALOG
+  3. PAGE CONTENTS
+  4. BOTTOM-NAVIGATION
+*/
+
+/* 1. COMMON */
+
+@@font-face {
+  font-family: 'Do Hyeon', sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Passion One;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: black;
+    overflow: hidden;
+    font-size: 20px;
+}
+
+.scale {
+    transform: scale(1);
+}
+
+input {
+    background-color: rgb(231, 231, 231);
+    border: 3px solid rgb(38, 33, 25);
+    border-radius: 5px;
+    height: 22px;
+    color: rgb(38, 33, 25);
+    font-family: Passion One;
+    font-size: 20px;
+    width: 168px;
+    margin-top: 2px;
+}
+
+select {
+    background-color: rgb(231, 231, 231);
+    border: 3px solid rgb(38, 33, 25);
+    border-radius: 5px;
+    height: 28px;
+    color: rgb(38, 33, 25);
+    font-family: Passion One;
+    font-size: 16px;
+    width: 180px;
+}
+
+button, .button {
+    background-color: rgb(140, 0, 0);
+    color: rgb(38, 33, 25);
+    font-family: Passion One;
+    cursor: pointer;
+    margin: 0;
+    text-shadow: none;
+    padding: 1px 6px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgb(107, 81, 53, 0.4);
+    line-height: 18px;
+    font-size: 18px;
+    height: 22px;
+}
+
+input[type=text], input[type=password], input[type=email] {
+    padding: 0 3px;
+}
+
+.text-border {
+    text-shadow: 1px 1px 0 #262119,
+    -1px 1px 0 #262119,
+    1px -1px 0 #262119,
+    -1px -1px 0 #262119,
+    0 1px 0 #262119,
+    0 -1px 0 #262119,
+    -1px 0 0 #262119,
+    1px 0 0 #262119,
+    2px 2px 0 #262119,
+    -2px 2px 0 #262119,
+    2px -2px 0 #262119,
+    -2px -2px 0 #262119,
+    0 2px 0 #262119,
+    0 -2px 0 #262119,
+    -2px 0 0 #262119,
+    2px 0 0 #262119,
+    1px 2px 0 #262119,
+    -1px 2px 0 #262119,
+    1px -2px 0 #262119,
+    -1px -2px 0 #262119,
+    2px 1px 0 #262119,
+    -2px 1px 0 #262119,
+    2px -1px 0 #262119,
+    -2px -1px 0 #262119;
+}
+
+.window-close-button {
+    cursor: pointer;
+    float: right;
+    font-size: 29px;
+    background-color: #ef1726;
+    border-radius: 5px;
+    border: 3px solid #262119;
+    width: 20px;
+    color: #262119;
+    height: 20px;
+    line-height: 18px;
+    box-shadow: inset 0px 0px 0 2px rgba(255, 234, 169, 0.3);
+}
+
+*, ::after, ::before {
+  box-sizing: revert;
+}
+
+/* /1. COMMON */
+
+/* 2. USER INTERFACE */
+/* 2-1. CHAT */
+#chat-container {
+    z-index: 100;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    color: #eeeeec;
+    width: 514px;
+    font-size: 16px;
+    transform-origin: bottom left;
+}
+
+#chat-content-container {
+    max-height: 170px;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: -1;
+    border-radius: 0 10px 0 0;
+    border: 4px solid rgb(38, 33, 25);
+    border-bottom: 0;
+    border-left: 0;
+}
+
+#chat-tabs {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.chat-tab {
+    display: inline-block;
+    background: rgb(170, 170, 170);
+    box-shadow: inset 0px 0px 0 3px rgba(90, 90, 90, 0.5);
+    border-top-left-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    border-bottom: 0;
+    border-top-right-radius: 10px;
+    padding: 6px 8px 5px 8px;
+    cursor: pointer;
+}
+
+.chat-tab-edit {
+    background: url(../../images/game/shortcuts/button_options.png), #bc9266;
+    height: 17px;
+    width: 13px;
+    display: inline-block;
+    margin-bottom: -9px;
+    background-size: cover;
+}
+
+.chat-tab-selected {
+    color: rgb(212, 76, 33);
+}
+
+.chat-tab:hover {
+    color: rgb(212, 76, 33);
+}
+
+.chat-content {
+    margin: 7px 5px;
+    list-style: none;
+    padding: 0;
+    word-wrap: break-word;
+}
+
+#chat-container-input {
+    color: white;
+    width: 500px;
+    background: rgb(170, 170, 170);
+    padding: 5px;
+    box-shadow: inset 0px 0px 0 3px rgba(90, 90, 90, 0.5);
+    border: 4px solid rgb(38, 33, 25);
+    border-bottom: 0px;
+    border-left: 0px;
+    padding-top: 3px;
+}
+
+#chat-type {
+    width: 90px;
+    vertical-align: top;
+    margin-top: 2px;
+    height: 28px;
+}
+
+#chat-input {
+    width: 340px;
+    vertical-align: top;
+    margin-top: 2px;
+}
+
+#chat-send {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-top: 5px;
+}
+
+.chat-message-service {
+    color: rgb(255, 224, 70);
+    color: #efba17;
+}
+
+.chat-message-global {
+}
+
+.chat-message-party {
+    color: #b6dc87;
+}
+
+.chat-message-whisper-from, .chat-message-whisper-to {
+    color: #f7a0f3;
+}
+
+.chat-message-global-name, .chat-message-zone-name, .chat-message-party-name,
+.chat-message-whisper-name {
+    cursor: pointer;
+}
+
+.chat-message-global-name:hover, .chat-message-zone-name:hover, .chat-message-party-name:hover,
+.chat-message-whisper-name:hover {
+    text-decoration: underline;
+}
+
+/* /2-1. CHAT */
+
+/* 2-2. QUICK BAR */
+#quick-bar-container {
+    z-index: 100;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    touch-action: none;
+    pointer-events: none;
+    transform-origin: bottom;
+}
+
+#quick-bar {
+    margin: auto;
+    user-select: none;
+    list-style: none;
+    padding: 1px;
+    display: flex;
+    touch-action: auto;
+    pointer-events: auto;
+    z-index: 100;
+    color: #eeeeec;
+    background: rgb(64, 64, 64);
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 0 0 3px 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+}
+
+#quick-bar-frame {
+    width: 586px;
+    display: flex;
+    touch-action: auto;
+    pointer-events: auto;
+    color: #eeeeec;
+    margin: auto;
+    transform-origin: bottom;
+    list-style: none;
+    background: rgb(130, 130, 130);
+    box-shadow: inset 0px 0px 0 3px rgba(120, 120, 120, 0.5);
+    border-radius: 10px 10px 0 0;
+    border: 4px solid rgb(38, 33, 25);
+        border-top-color: rgb(38, 33, 25);
+        border-top-style: solid;
+        border-top-width: 4px;
+        border-bottom-color: rgb(38, 33, 25);
+        border-bottom-style: solid;
+        border-bottom-width: 4px;
+        border-left-color: rgb(38, 33, 25);
+        border-left-style: solid;
+        border-left-width: 4px;
+    border-top-color: rgb(38, 33, 25);
+    border-top-style: solid;
+    border-top-width: 4px;
+    border-left-color: rgb(38, 33, 25);
+    border-left-style: solid;
+    border-left-width: 4px;
+    border-top-color: rgb(38, 33, 25);
+    border-top-style: solid;
+    border-top-width: 4px;
+    border-left-color: rgb(38, 33, 25);
+    border-left-style: solid;
+    border-left-width: 4px;
+    padding: 8px;
+    border-bottom: 0;
+    display: block;
+}
+
+#experience-bar {
+    margin: auto;
+    margin-bottom: auto;
+    position: relative;
+    margin-bottom: 3px;
+    touch-action: auto;
+    pointer-events: auto;
+    z-index: 100;
+    color: #eeeeec;
+    user-select: none;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px 3px 0 0;
+    border: 2px solid rgb(70, 130, 0);
+    height: 5px;
+}
+
+.quick-bar-slot {
+    cursor: pointer;
+    display: table-cell;
+    height: 48px;
+    width: 48Px;
+    border: 2px solid rgb(120, 120, 120);
+    border-radius: 3px;
+    position: relative;
+    max-height: 48px;
+    max-width: 48px;
+    background-color: rgb(231, 231, 231);
+    box-shadow: 0px 0px 0 2px #262119;
+    margin: 3px;
+}
+
+.item-inventory-slot {
+    cursor: pointer;
+    display: inline-block;
+    height: 48px;
+    width: 48Px;
+    border: 2px solid #eddca0;
+    border-radius: 3px;
+    position: relative;
+    max-height: 48px;
+    max-width: 48px;
+    background-color: #ccae7a;
+    box-shadow: 0px 0px 0 2px #262119;
+}
+
+.item-amount {
+    bottom: 0;
+    right: 2px;
+    position: absolute;
+}
+/* /2-2. QUICK BAR */
+
+/* 2-3. PLAYER STATUS */
+#player-container {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    transform-origin: top left;
+    touch-action: none;
+    pointer-events: none;
+}
+
+#player-forms {
+    color: #eeeeec;
+    margin: auto;
+    transform-origin: bottom;
+    list-style: none;
+    background: rgb(120, 120, 120);
+    box-shadow: inset 0px 0px 0 3px rgba(190, 190, 190, 0.5);
+    border-radius: 0 0 10px 0;
+    padding: 8px;
+    border: 0 solid rgb(38, 33, 25);
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    touch-action: auto;
+    pointer-events: auto;
+}
+
+#player-life-panel {
+    z-index: 100;
+    width: 330px;
+    height: 16px;
+    color: #eeeeec;
+    text-align: left;
+    line-height: 18px;
+    font-size: 18px;
+    padding-left: 6px;
+    user-select: none;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgb(244, 87, 50);
+    margin-top: 8px;
+}
+
+#player-energy-panel {
+    z-index: 100;
+    width: 330px;
+    height: 16px;
+    color: #eeeeec;
+    text-align: left;
+    line-height: 18px;
+    font-size: 18px;
+    padding-left: 6px;
+    user-select: none;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgb(255, 207, 59);
+    margin-top: 8px;
+}
+
+#player-mana-panel {
+    z-index: 100;
+    width: 330px;
+    height: 16px;
+    color: #eeeeec;
+    text-align: left;
+    line-height: 18px;
+    font-size: 18px;
+    padding-left: 6px;
+    user-select: none;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgb(93, 147, 190);
+    margin-top: 8px;
+}
+
+.name-panel {
+    z-index: 100;
+    height: 24px;
+    font-size: 24px;
+    line-height: 26px;
+    user-select: none;
+    text-align: left;
+    color: #eeeeec;
+    background: rgb(64, 64, 64);
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    display: flex;
+    max-width: 336px;
+}
+
+#player-name-panel {
+    font-size: 24px;
+    line-height: 26px;
+    user-select: none;
+    text-align: left;
+    color: #eeeeec;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-left: 6px;
+}
+
+#player-level-panel {
+    z-index: 100;
+    left: 2px;
+    color: #eeeeec;
+    text-align: right;
+    line-height: 26px;
+    font-size: 24px;
+    padding-right: 6px;
+    width: 45px;
+}
+
+/* NOT AVAILABLE  */
+#party-invite-accept-invite-player {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#player-party-leader {
+    width: 26px;
+    height: 22px;
+    background-size: cover;
+    background-image: url(/assets/images/party_leader_32.png);
+    z-index: 110;
+    display: inline-table;
+}
+
+.buff-time-text {
+    text-align: center;
+}
+
+#player-buffs {
+    position: absolute;
+    left: 382px;
+    top: 3px;
+    display: flex;
+}
+
+.player-buff {
+    width: 48px;
+    height: 48px;
+    background-image: url(/assets/images/buffs/default.png);
+    background-size: cover;
+    margin-right: 3px;
+}
+/* /NOT AVAILABLE  */
+/* /2-3. PLAYER STATUS */
+/* 2-4. PARTY STATUS */
+#party-container {
+    color: #eeeeec;
+    margin: auto;
+    transform-origin: bottom;
+    list-style: none;
+    background: rgb(190, 190, 190);
+    box-shadow: inset 0px 0px 0 3px rgba(120, 120, 120, 0.5);
+    border-radius: 0 0 10px 0;
+    border: 4px solid rgb(38, 33, 25);
+    padding: 8px;
+    border-top: 0;
+    border-left: 0;
+    display: inline-block;
+    touch-action: auto;
+    pointer-events: auto;
+}
+
+#party-member-list {
+
+}
+
+.party-member {
+    color: #eeeeec;
+    transform-origin: bottom;
+    user-select: none;
+    list-style: none;
+    position: relative;
+}
+
+#party-invite, #party-invite-member-container, #party-invite-accept-container {
+
+}
+
+#party-invite {
+    display: inline-block;
+}
+
+#party-invite-member-container, #party-invite-accept-container {
+    display: block;
+}
+/* /2-4. PARTY STATUS */
+/* 2-5. TARGET STATUS */
+#target-container {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform-origin: top right;
+}
+
+#target-forms {
+    color: #eeeeec;
+    margin: auto;
+    transform-origin: bottom;
+    list-style: none;
+    background: rgb(120, 120, 120);
+    box-shadow: inset 0px 0px 0 3px rgba(190, 190, 190, 0.5);
+    border-radius: 0 0 0 10px;
+    border: 4px solid rgb(38, 33, 25);
+    padding: 8px;
+    border-top: 0;
+    border-right: 0;
+}
+
+#target-life-panel {
+    z-index: 100;
+    width: 330px;
+    height: 16px;
+    color: #eeeeec;
+    text-align: left;
+    line-height: 18px;
+    font-size: 18px;
+    padding-left: 6px;
+    user-select: none;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgb(244, 87, 50);
+    margin-top: 8px;
+}
+
+#target-level {
+    z-index: 100;
+    left: 2px;
+    color: #eeeeec;
+    text-align: right;
+    line-height: 26px;
+    font-size: 24px;
+    width: 45px;
+    padding-right: 6px;
+}
+
+#target-name {
+    z-index: 100;
+    height: 24px;
+    font-size: 24px;
+    line-height: 26px;
+    user-select: none;
+    text-align: left;
+    color: #eeeeec;
+    width: 278px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-left: 6px;
+}
+
+/* NOT AVAILABLE  */
+#target-buffs {
+    position: absolute;
+    right: 382px;
+    top: 3px;
+    display: flex;
+}
+
+.target-buff {
+    width: 48px;
+    height: 48px;
+    background-image: url(/assets/images/buffs/default.png);
+    background-size: cover;
+    margin-left: 3px;
+}
+/* /NOT AVAILABLE  */
+/* /2-5. TARGET STATUS */
+/* 2-6 SHORTCUTS */
+
+#shortcuts-container {
+    z-index: 100;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform-origin: bottom right;
+}
+
+#shortcuts-forms {
+    color: #eeeeec;
+    transform-origin: bottom;
+    user-select: none;
+    list-style: none;
+    display: block;
+    background: rgb(120, 120, 120);
+    box-shadow: inset 0px 0px 0 3px rgba(190, 190, 190, 0.5);
+    border-radius: 10px 0 0 0;
+    border: 4px solid rgb(38, 33, 25);
+        border-bottom-color: rgb(38, 33, 25);
+        border-bottom-style: solid;
+        border-bottom-width: 4px;
+    padding: 8px;
+    border-bottom: 0;
+    border-right: 0;
+}
+
+#shortcuts-content {
+    color: #eeeeec;
+    transform-origin: bottom;
+    user-select: none;
+    list-style: none;
+    display: flex;
+    background: rgb(64, 64, 64);
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    padding: 6px 0 0 6px;
+}
+
+#social-media {
+    background: rgb(64, 64, 64);
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px 3px 0 0;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+    margin-bottom: 3px;
+}
+
+.inventory-button {
+    cursor: pointer;
+    z-index: 100;
+    color: rgb(64, 64, 64);
+    background: rgba(0, 0, 0, 0.5) url(/assets/images/shortcuts_button_stats.png);
+    text-align: center;
+    font-size: 30px;
+    line-height: 40px;
+    user-select: none;
+    height: 48px;
+    width: 48Px;
+    border: 2px solid rgb(64, 64, 64);
+    border-radius: 3px;
+    max-height: 48px;
+    max-width: 48px;
+    box-shadow: 0px 0px 0 2px #262119;
+    margin-bottom: 8px;
+    margin-left: 3px;
+}
+
+.help-button {
+    cursor: pointer;
+    z-index: 100;
+    color: #89664e;
+    text-align: center;
+    font-size: 30px;
+    line-height: 40px;
+    user-select: none;
+    height: 48px;
+    width: 48Px;
+    border: 2px solid #eddca0;
+    border-radius: 3px;
+    max-height: 48px;
+    max-width: 48px;
+    box-shadow: 0px 0px 0 2px #262119;
+}
+
+#social-media-content {
+    text-align: right;
+}
+
+#shortcuts-button-container {
+    margin: auto;
+    user-select: none;
+    list-style: none;
+    padding: 1px;
+    display: flex;
+    touch-action: auto;
+    pointer-events: auto;
+    z-index: 100;
+    color: #eeeeec;
+    background: rgb(64, 64, 64);
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px 0 3px 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+}
+
+.toggle-button {cursor: pointer;
+    z-index: 100;
+    color: #89664e;
+    background: rgba(0, 0, 0, 0.5) url(/assets/images/shortcuts_button_stats.png);
+    text-align: center;
+    font-size: 30px;
+    line-height: 40px;
+    user-select: none;
+    height: 48px;
+    width: 48Px;
+    border: 2px solid rgb(120, 120, 120);
+    border-radius: 3px;
+    max-height: 48px;
+    max-width: 48px;
+    box-shadow: 0px 0px 0 2px #262119;
+    margin: 3px;
+}
+
+#stats-toggle-button {
+    background: rgb(231, 231, 231) url(/assets/images/shortcuts_button_stats.png);
+}
+
+#professions-toggle-button {
+    background: rgb(231, 231, 231) url(/assets/images/shortcuts_button_professions.png);
+}
+
+#professions-help-button {
+    background: rgb(231, 231, 231) url(/assets/images/items/fragezeichen.png);
+}
+
+#inventory-toggle-button {
+    background: rgb(231, 231, 231) url(../../images/game/shortcuts/button_inventory.png);
+}
+
+#map-toggle-button {
+    background: rgb(231, 231, 231) url(../../images/game/shortcuts/button_map.png);
+}
+
+#hub-toggle-button {
+    background: rgb(231, 231, 231) url(../../images/game/shortcuts/button_hub.png);
+}
+
+#quest-log-toggle-button {
+    background: rgb(231, 231, 231) url(../../images/game/shortcuts/button_questlog.png);
+}
+
+#options-toggle-button {
+    background: rgb(231, 231, 231) url(../../images/game/shortcuts/button_options.png);
+}
+
+#shop-toggle-button {
+    background: rgb(231, 231, 231) url(../../images/game/shortcuts/button_store.gif);
+}
+/* /2-6 SHORTCUTS */
+/* 2.7 DIALOG */
+#dialog-window-container {
+    z-index: 99;
+    position: absolute;
+    bottom: 92px;
+    width: 100%;
+    ransform-origin: bottom;
+    touch-action: none;
+    pointer-events: none;
+}
+
+#dialog-window-frame {
+    z-index: 100;
+    min-width: 150px;
+    background: rgb(100, 100, 100);
+    box-shadow: inset 0px 0px 0 3px rgba(190, 190, 190, 0.5);
+    padding: 8px;
+    border-radius: 10px;
+    border: 4px solid rgb(38, 33, 25);
+    display: table;
+    margin: auto;
+    touch-action: auto;
+    pointer-events: auto;
+}
+#dialog-window-top {
+    color: rgb(80, 0, 0);
+    font-size: 26px;
+    text-align: center;
+    line-height: 26px;
+    height: 26px;
+    padding-bottom: 7px;
+    margin-top: -3px;
+    margin-right: -3px;
+}
+
+#dialog-window {
+    display: table;
+    margin: auto;
+    color: white;
+    background: rgb(80, 0, 0);
+    padding: 5px;
+    box-shadow: 0 0 0 3px rgb(38, 33, 25);
+    border-radius: 3px;
+    border: 2px solid rgba(38, 24, 8, 0.4);
+}
+
+#dialog-source-name {
+    margin-bottom: 5px;
+}
+
+#dialog-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dialog-item-header {
+    font-size: 1.3em;
+    color: #efba17;
+}
+
+.dialog-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(/assets/images/npc_head_icons.png) -6px -6px;
+    vertical-align: bottom;
+    margin-right: 5px;
+
+}
+
+.dialog-icon-accept, .dialog-icon-finish {
+    background-position: -38px -38px;
+}
+
+.dialog-icon-decline {
+    background-position: -6px -38px;
+}
+
+.dialog-icon-shop, .dialog-icon-trade {
+    background-position: -6px -6px;
+}
+
+.dialog-icon-startquest {
+    background-position: -38px -6px;
+}
+
+.dialog-icon-finishquest {
+    background-position: -102px -6px;
+}
+
+.dialog-icon-highquest, .dialog-icon-activequest {
+    background-position: -70px -6px;
+}
+
+.dialog-icon-talkto {
+    background-position: -70px -38px;
+}
+
+.dialog-icon-bank {
+    background-position: -102px -38px;
+}
+
+.dialog-icon-premium-shop {
+    background-position: -6px -70px;
+}
+
+.dialog-disabled-item {
+    color: #dad6cf;
+}
+
+.dialog-disabled-item::before {
+    content: "» ";
+    visibility: hidden;
+}
+
+.dialog-selectable-item {
+    cursor: pointer;
+    color: #d7f5b1;
+}
+
+.dialog-selectable-item::before {
+    content: "» ";
+    visibility: hidden;
+}
+
+.dialog-selectable-item:hover::before {
+    visibility: visible;
+}
+/* /2.7 DIALOG */
+
+/* 2.8 Score */
+#score-container {
+    z-index: 100;
+    position: absolute;
+    left: 0;
+    top: 135px;
+    overflow: hidden;
+    color: #eeeeec;
+    width: 360px;
+    font-size: 14px;
+    transform-origin: bottom left;
+}
+
+#score-content-container {
+    max-height: 170px;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: relative;
+    border-radius: 0 10px 10px 0;
+    border: 4px solid rgb(38, 33, 25);
+    border-left: 0;
+}
+
+#score-whole-content {
+    margin: 7px 5px;
+    list-style: none;
+    padding: 0;
+    word-wrap: break-word;
+}
+
+#score-user-content {
+  margin-top: 10px;
+}
+
+#score-hide-button {
+    cursor: pointer;
+    color: #ef1726;
+}
+
+#score-ranking {
+}
+
+#score-user-name {
+  color: rgb(255, 224, 70);
+  color: #efba17;
+}
+#score-user-value {
+}
+
+#score-value-header {
+  text-align: center;
+}
+
+/* /2.8 Score */
+/* /2. USER INTERFACE */
