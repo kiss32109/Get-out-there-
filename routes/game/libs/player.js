@@ -222,6 +222,7 @@ Player.onConnect = function(socket, username) {
   });
 
   socket.on('addItem', function(data) {
+    if(data===undefined) return;
     let item = data.item;
 
     player.inventory.addItem(item);
