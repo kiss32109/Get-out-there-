@@ -53,6 +53,7 @@ module.exports = function(io) {
         //소켓 전역 리스트에서 연결 종료 처리된 소켓 제거
         delete SOCKET_LIST[socket.id];
         //연결 종료 처리된 소켓을 기준으로 해당 플레이어 객체 처리
+        console.log(socket);
         Player.onDisconnect(socket);
     });
 

@@ -142,11 +142,11 @@ Item(
   "energy_potion_medium",
   0,
   function(player){
-    if(player.energyMax-player.energy>5) {
-      player.energy += 5;
+    if(player.energyMax-player.energy>50) {
+      player.energy += 50;
     }
     else {
-      player.energy = 10;
+      player.energy = 100;
     }
 });
 Item(
@@ -181,15 +181,15 @@ Item(
   "energy_potion_small",
   0,
   function(player){
-    if(player.energyMax-player.energy>3) {
-      player.energy += 3;
+    if(player.energyMax-player.energy>30) {
+      player.energy += 30;
     }
     else {
-      player.energy = 10;
+      player.energy = 100;
     }
 });
 /* /Potions */
- 
+
 /* Closet */
 Item(
   "legs_leather_white_cloth",

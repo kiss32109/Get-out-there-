@@ -10,8 +10,8 @@ Player = function(param) {
   //객체 체력 및 최대 체력 설정
   self.hp = 10;
   self.hpMax = 10;
-  self.energy = 10;
-  self.energyMax = 10;
+  self.energy = 100;
+  self.energyMax = 100;
   //객체 게임 스코어 설정
   self.score = 0;
   //게임 내 객체 인벤토리 설정
