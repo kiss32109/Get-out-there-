@@ -219,6 +219,9 @@ ClosetRenderer = function(param) {
 					closet.effects.interaction.height*3,
 				);
 			}
+			else if (location.status === 'INVISIBLE') {
+				console.log('INVISIBLE');
+			}
 			//14-18(4) -> 62-66(4) -> 110-114(4) -> 158-162(4)	/48
 			//-19-8(27) -> 30-57(27) -> 77-104(27) -> 125-153(27)	/21
 			//-2-9(11) -> 46-57(11) -> 94-105(11) -> 142-153(11)  /48

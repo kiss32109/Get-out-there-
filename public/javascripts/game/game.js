@@ -58,7 +58,7 @@ var updatingInteractInterface = function(target) {
 	for(var item in target.droppable) {
 		var $slot = $(
 			'<li class="quick-bar-slot" id="quick-bar-slot-'+ slot_numbering +'"'
-			+'style="background: url(../../images/game/items/'+ target.droppable[item].img +'.png) repeat scroll 0% 0%, rgb(190, 190, 190) none repeat scroll 0% 0%;">'
+			+'style="background: url(../../images/game/items/'+ target.droppable[item].img +'.png) no-repeat, rgb(190, 190, 190) none repeat scroll 0% 0%;">'
 			+'<input type="hidden" value="'+ target.droppable[item].id +'">'
 			+'<span class="item-amount text-border">'+ target.droppable[item].amount +'</span>'
 			+'</li>'
@@ -111,7 +111,7 @@ var updatingUserQuickBar = function(inventory) {
 			if(inventory.items[index]) {
 				var $slot = $(
 					'<li class="quick-bar-slot" id="quick-bar-slot-'+ index+'"'
-					+'style="background: url(../../images/game/items/'+ inventory.items[index].img +'.png) repeat scroll 0% 0%, rgb(190, 190, 190) none repeat scroll 0% 0%;">'
+					+'style="background: url(../../images/game/items/'+ inventory.items[index].img +'.png) no-repeat scroll 0% 0%, rgb(190, 190, 190) none repeat scroll 0% 0%;">'
 					+'<input type="hidden" value="'+ inventory.items[index].id +'">'
 					+'<span class="item-amount text-border">'+ inventory.items[index].amount +'</span>'
 					+'</li>'
@@ -271,7 +271,13 @@ $(function() {
 	SOCKET.on('updatingUserCloset', function(data) {
 		updatingUserQuickBar(data.inventory);
 		Player.list[SELF_ID].closetRenderer.updateCloset(data.closet);
-	})
+	});
+
+	SOCKET.on('invisibleStart', function() {
+		setTimeout(function(){
+			SOCKET.emit('invisibleEND')
+		}, 2000);
+	});
 
 	SOCKET.on('mapChanged', function(data){
 		for(var i in Player.list) {
@@ -382,6 +388,9 @@ $(function() {
 
 		Player.list[SELF_ID].fieldRenderer.render();
 	  for(var i in Player.list) {
+			if(Player.list[i].location.status==='INVISIBLE') {
+				continue;
+			}
 			Player.list[i].draw();
 		}
 	  for(var i in Bullet.list)

@@ -16,6 +16,7 @@ Player = function(param) {
   self.score = 0;
   //게임 내 객체 인벤토리 설정
   self.inventory = new Inventory(self.id);
+
   self.closet = new Closet(self.id);
   self.weapon = new Weapon(self.id);
 
@@ -77,7 +78,7 @@ Player = function(param) {
   self.updateSpd = function() {
 
     if(self.movement.RIGHT || self.movement.LEFT || self.movement.DOWN || self.movement.UP) {
-      self.location.status = 'MOVE';
+      if(!(self.location.status==='INVISIBLE')) self.location.status = 'MOVE';
     }
 
     /* X축 이동 처리 */
@@ -109,7 +110,7 @@ Player = function(param) {
       self.spdY = 0;
     }
     if(!(self.movement.RIGHT || self.movement.LEFT || self.movement.DOWN || self.movement.UP)
-      && self.location.status!=='INTERACT') {
+      && self.location.status!=='INTERACT' && self.location.status!=='INVISIBLE') {
       self.location.status = 'HOLD';
     }
   }
@@ -187,10 +188,11 @@ Player.onConnect = function(socket, username) {
 
   /* */
   socket.on('quickUseItem', function(data) {
+    if(data===undefined) { console.log(data); }
     for(var index=0; index<player.inventory.items.length; index++) {
-      if(player.inventory.items[index]===undefined) {console.log(data);continue;}
+      if(player.inventory.items[index]===undefined) {continue;}
       if(player.inventory.items[index].id === data) {
-        player.inventory.items[index].event(player);
+        player.inventory.items[index].event(player, socket);
         if(--player.inventory.items[index].amount===0) {
           delete player.inventory.items[index];
         }
@@ -201,7 +203,7 @@ Player.onConnect = function(socket, username) {
 
   socket.on('wearingCloth', function(data) {
     for(var index=0; index<player.inventory.items.length; index++) {
-      if(player.inventory.items[index]===undefined) {console.log(data);continue;}
+      if(player.inventory.items[index]===undefined) {continue;}
       if(player.inventory.items[index].id === data) {
         player.inventory.items[index].event(player);
         if(--player.inventory.items[index].amount===0) {
@@ -230,9 +232,12 @@ Player.onConnect = function(socket, username) {
     else {
       player.inventory.items[data.toBeMovedIndex] = toMoveItem;
       player.inventory.items[data.toMoveIndex] = toBeMovedItem;
-      console.log(player.inventory.items);
     }
     player.socket.emit('updatingUserQuickBar', player.inventory);
+  });
+
+  socket.on('invisibleEND', function() {
+    player.location.status = 'HOLD';
   })
   /* / */
 

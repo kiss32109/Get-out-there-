@@ -154,7 +154,7 @@ Objects.list = {};
 /* /맵 클래스 정의 */
 
 var setRandomDroppableItem = function() {
-  var droppableItems = ['healing_potion_small', 'mana_potion_small','energy_potion_small',
+  var droppableItems = ['healing_potion_small', 'mana_potion_small','energy_potion_small','invisible_potion_small',
                         'healing_potion_medium', 'mana_potion_medium', 'energy_potion_medium',
                         'chest_leather_vest_yellow_cloth', 'head_farmer_hat_straw_cloth', 'legs_leather_white_cloth'
                       ];
@@ -162,7 +162,7 @@ var setRandomDroppableItem = function() {
   var count = UTILITY.randomRange(1,5);
   var index = 0;
   while(index<count) {
-    var key = droppableItems[UTILITY.randomRange(0,8)];
+    var key = droppableItems[UTILITY.randomRange(0,9)];
     if(tmpDroppable[key]===undefined) {
       tmpDroppable[key] = UTILITY.clone(Item.list[key]);
       tmpDroppable[key].amount++;
