@@ -8,6 +8,8 @@ var SOCKET = io();
 var SELF_ID = null;
 var LAST_SCORE = null;
 
+var SUPPLY_COUNT = 0;
+
 //게임 컨텐츠를 포함하는 컨텍스트
 var cnvs, ctx;
 
@@ -379,7 +381,21 @@ $(function() {
 	  }
 	});
 
+
+
 	setInterval(function(){
+
+		SUPPLY_COUNT++;
+		if(SUPPLY_COUNT>1000) {
+			SUPPLY_COUNT = 0;
+			const info_window_container = $('div[id~=info-window-container]');
+			info_window_container.css('display','');
+			setTimeout(function() {
+				info_window_container.css('display', 'none')
+			},6000);
+			SOCKET.emit('supplyRespon');
+		}
+
 	  if(!SELF_ID)
 	    return;
 		clearCanvas();

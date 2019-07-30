@@ -986,4 +986,17 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 /* /2.8 Score */
+
+/* */
+#info-window-container{
+  position:absolute;
+  top:20%;
+  left:35%;
+  width:100%;
+  height:300px;
+  margin:-50px 0 0 -50px;
+  font-size: 80px;
+  color: yellow;
+}
+/* */
 /* /2. USER INTERFACE */

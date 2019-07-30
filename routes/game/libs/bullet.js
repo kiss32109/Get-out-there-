@@ -29,6 +29,7 @@ Bullet = function(param) {
       self.toRemove = true;
     }
     super_update();
+
     /* 플레이어 객체에 접근시 처리를 위한 과정 */
     for(var i in Player.list){
 			var p = Player.list[i];
