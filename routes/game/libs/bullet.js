@@ -53,6 +53,7 @@ Bullet = function(param) {
           Objects.createObjectHasDiedItems(p);
 
 					p.hp = p.hpMax;
+          p.energy = p.energyMax;
           p.score = 0;
 					p.location.x = Math.random() * 500;
 					p.location.y = Math.random() * 500;
