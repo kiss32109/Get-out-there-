@@ -4,6 +4,7 @@ var WIDTH = $(window).width();
 var HEIGHT = $(window).height();
 
 var SOCKET = io();
+/* 절대 polling 쓰지 말 것 → 소켓이 끊겼다가 접속되었다가를 빠른 속도로 반복함 */
 
 var SELF_ID = null;
 var LAST_SCORE = null;

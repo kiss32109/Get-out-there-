@@ -61,7 +61,15 @@ function show_login() {
   /* 회원가입창이 보여짐 상태 중이라면
      토글 후 로그인창 토글
   */
-  if($('form[class*=show]').attr('id')==='registration') {
+
+  /* 해수가 건든 곳 */
+  if($('button[id*=HOME]').attr('name')){
+    location.href="/game";
+  }
+  /* 로그인 성공했을 때, button 태그의 name 에 닉네임을 넣어주어
+     if문으로 게임시작(/game) 으로 갈 수 있게 해줌 */
+
+  else if($('form[class*=show]').attr('id')==='registration') {
     before_alert();
     show_login();
   }
@@ -101,9 +109,21 @@ function before_alert() {
 	}
 }
 
+/* 해수 - 로그아웃 기능 */
+function logout(){
+  location.href="/login/logout";
+}
+
+
 /* 인덱스 페이지 DOM 생성시 호출 함수 */
 $(document).ready(function() {
   pageSlide();
+
+  $('button[name*=join_button]').click(function(){
+    if($('input[id*=validate]').attr('name')){
+      alert('닉네임이나 이메일이 중복되었습니다');
+    }
+  })
 
   $('div[id*=game-control-box]').children('button').on({
     'mouseenter': function() {

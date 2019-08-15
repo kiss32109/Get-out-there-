@@ -2,7 +2,8 @@
 <nav id="footer" class="navbar navbar-expand-lg fixed-bottom">
   <div class="container-fluid d-block">
     <div id="game-control-box" class="text-center w-100">
-        <button id="HOME" onclick="show_login()" type="button" class="btn btn-link mb-2">게임 시작하기</button>
+        <button id="HOME" onclick="show_login()" type="button" class="btn btn-link mb-2 gamestart" name="<%-name%>">게임 시작하기</button>
+        <button name="sign-up" id="HOME" type="button" onclick="logout()" class="btn btn-link mb-2">로그아웃</button>
     </div>
     <div id="game-page-sliding" class="text-center w-100">
       <div id="page-tabs">
@@ -14,33 +15,34 @@
     <div id="game-detail" class="w-100">
       <span class="navbar-brand" style="float:left;">하단 네비게이션 바</span>
       <!-- 로그인 폼 -->
-      <form id="login" class="collapse form-inline">
-        <div class="form-group mb-2">
+      <form id="login" class="collapse form-inline" action="/login" method="post">
+        <div class="form-group mb-2 1">
+          <input type="hidden" id="login-result">
           <label  for="email">이메일</label>
-          <input type="text" class="form-control" id="email" placeholder="email@example.com">
+          <input type="text" class="form-control" name="userEmail" id="email" placeholder="email@example.com">
         </div>
-        <div class="form-group mb-2">
+        <div class="form-group mb-2 1">
           <label  for="password">패스워드</label>
-          <input type="password" class="form-control" id="password" placeholder="Password">
+          <input type="password" class="form-control" name="userPassword" id="password" placeholder="Password">
         </div>
-        <button id="HOME" type="submit" class="btn btn-link mb-2">로그인</button>
-        <button id="HOME" type="button" onclick="show_registration()" class="btn btn-link mb-2">회원가입</button>
+        <button name="sign-in" id="HOME" type="submit" class="btn btn-link mb-2 1">로그인</button>
+        <button name="sign-up" id="HOME" type="button" onclick="show_registration()" class="btn btn-link mb-2">회원가입</button>
       </form>
       <!-- 회원가입 폼 -->
-      <form id="registration" class="collapse form-inline">
+      <form id="registration" class="collapse form-inline" action="/signup" method="post">
         <div class="form-group mb-2">
           <label  for="nickname">닉네임</label>
-          <input type="text" class="form-control" id="email" placeholder="게임 내 닉네임">
+          <input type="text" name="signup-nickname" class="form-control" id="email" placeholder="게임 내 닉네임">
         </div>
         <div class="form-group mb-2">
           <label  for="email">이메일</label>
-          <input type="text" class="form-control" id="email" placeholder="이메일 기입">
+          <input type="text" name="signup-email" class="form-control" id="email" placeholder="이메일 기입">
         </div>
         <div class="form-group mb-2">
           <label  for="password">패스워드</label>
-          <input type="password" class="form-control" id="password" placeholder="패스워드 기입">
+          <input type="password" name="signup-password" class="form-control" id="password" placeholder="패스워드 기입">
         </div>
-        <button id="HOME" type="submit" class="btn btn-link mb-2">가입하기</button>
+        <button id="HOME" type="submit" name="join_button" class="btn btn-link mb-2 join">가입하기</button>
         <button id="HOME" type="button" onclick="show_login()" class="btn btn-link mb-2">돌아가기</button>
       </form>
       <div id="wrong-password-warnning" class="collapse alert alert-dark" role="alert">
@@ -48,4 +50,5 @@
       </div>
     </div>
   </div>
+  <input type="hidden" id="validate" name="<%-vali%>">
 </nav>

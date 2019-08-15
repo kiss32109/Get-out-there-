@@ -9,6 +9,12 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var gameRouter = require('./routes/game/game');
 
+var loginRouter = require('./routes/login');
+var joinRouter = require('./routes/join');
+
+var session = require('express-session');
+var MySQLStore = require('express-mysql-session')(session);
+
 var app = express();
 
 /* 소켓 관련 설정
@@ -17,6 +23,52 @@ var app = express();
   를 사용하면, bin/www에서 서버와 연결하기 어렵다.
 */
 app.io = require('socket.io')();
+
+var options = {
+  host: 'localhost',
+  post: 3306,
+  user: 'root', // MySQL id
+  password: 'gotn1346', // MySQL pw
+  database: 'test' // 데이터베이스 스키마명
+}
+
+app.use(session({
+  secret: 'asdfjxclz@#(*)#DFLKJV',
+  resave: false,  // 세션 id 를 접속할 때마다 새로 발급하는 것
+  saveUninitialized: true, // 실제로 세션을 사용하기 전까지 발급하지 않는다
+  store: new MySQLStore(options)
+}));
+
+/*
+  login.js 을 확인해보면
+  req.session.nickname = rows[0].user_nickname; (55번째줄)
+  로그인 한 유저의 닉네임을 세션에 담아주었다.
+
+  그 데이터를 locals 의 name 이라는 이름으로 담아주는 것
+*/
+app.use(function(req, res, next) {
+  /* 로그인이 성공했을 때에만 값이 있음 */
+  var session_confirm = req.session.usersession;
+  /* 회원가입에서 중복이 있을 경우에만 값이 있음 */
+  var validate = req.session.validate;
+
+  if(session_confirm != undefined){
+    /* locals.-- 는 값을 전달해주지 않아도
+       ejs, jade 등에서 바로 사용할 수 있게 해주는 기능  */
+    res.locals.name = req.session.nickname;
+  } else {
+    /* 공백을 준 이유는 템플릿에서 인식하지 못하기 때문에 오류가 발생 */
+    res.locals.name = '';
+  }
+
+  if(validate != undefined){
+    res.locals.vali = validate;
+  } else {
+    res.locals.vali = '';
+  }
+
+  next();
+});
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -143,6 +195,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/game', gameRouter);
 
+app.use('/login', loginRouter);
+app.use('/signup', joinRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -170,7 +225,6 @@ require('./routes/game/libs/inventory');
 
 /* app.js에 소켓관련 코드가 섞이지 않게 모듈을 따로 분리해서 작성한다. */
 require('./routes/game/libs/socketConnection')(app.io);
-
 /* /게임 관련 로직 */
 
 module.exports = app;
