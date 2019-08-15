@@ -106,6 +106,11 @@ module.exports = function(io) {
       var res = eval(data);
       socket.emit('evalAnswer', res);
     });
+    socket.on('supplyRespon', function() {
+      for(var i in SOCKET_LIST){
+        SOCKET_LIST[i].emit('mapChanged', Maps.supplyRespon());
+      }
+    });
   });
   /* /서버, 클라이언트 간 상호 통신 이벤트 */
 

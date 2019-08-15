@@ -49,7 +49,7 @@ var Player = function(initPack){
     ctx.fillRect(x+16, y, 5, 5); //RIGHT
     ctx.fillRect(x, y-32, 5, 5); //TOP
     ctx.fillRect(x, y+27, 5, 5); //BOTTOM
-    
+
     self.closetRenderer.playerClicking(self, x, y);
     self.closetRenderer.render(x, y);
   }

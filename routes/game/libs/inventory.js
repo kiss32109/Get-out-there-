@@ -115,7 +115,7 @@ Item(
   "MEDIUM HEALING POTION",
   "healing_potion_medium",
   0,
-  function(player){
+  function(player, socket){
     if(player.hpMax-player.hp>5) {
       player.hp += 5;
     }
@@ -128,7 +128,7 @@ Item(
   "MEDIUM MANA POTION",
   "mana_potion_medium",
   0,
-  function(player){
+  function(player, socket){
     if(player.mpMax-player.mp>5) {
       player.mp += 5;
     }
@@ -141,7 +141,7 @@ Item(
   "MEDIUM ENERGY POTION",
   "energy_potion_medium",
   0,
-  function(player){
+  function(player, socket){
     if(player.energyMax-player.energy>50) {
       player.energy += 50;
     }
@@ -154,7 +154,7 @@ Item(
   "SMALL HEALING POTION",
   "healing_potion_small",
   0,
-  function(player){
+  function(player, socket){
     if(player.hpMax-player.hp>3) {
       player.hp += 3;
     }
@@ -167,7 +167,7 @@ Item(
   "SMALL MANA POTION",
   "mana_potion_small",
   0,
-  function(player){
+  function(player, socket){
     if(player.mpMax-player.mp>3) {
       player.mp += 3;
     }
@@ -180,13 +180,22 @@ Item(
   "SMALL ENERGY POTION",
   "energy_potion_small",
   0,
-  function(player){
+  function(player, socket){
     if(player.energyMax-player.energy>30) {
       player.energy += 30;
     }
     else {
       player.energy = 100;
     }
+});
+Item(
+  "invisible_potion_small",
+  "SMALL INVISIBLE POTION",
+  "invisible_potion_small",
+  0,
+  function(player, socket){
+    player.location.status = 'INVISIBLE';
+    socket.emit('invisibleStart'); 
 });
 /* /Potions */
 
@@ -196,7 +205,7 @@ Item(
   "YELLOW LEATHER PANTS",
   "legs_leather_white_cloth",
   0,
-  function(player){
+  function(player, socket){
     player.closet.closet.parts.tiles.pants.img = 'human_action_legs_merchant_cloth_white';
 });
 Item(
@@ -204,7 +213,7 @@ Item(
   "YELLOW LEATHER VEST",
   "chest_leather_vest_yellow_cloth",
   0,
-  function(player){
+  function(player, socket){
     player.closet.closet.parts.tiles.chest.img = 'human_action_chest_citizen_leathervest_cloth';
 });
 Item(
@@ -212,7 +221,7 @@ Item(
   "FARMER HAT",
   "head_farmer_hat_straw_cloth",
   0,
-  function(player){
+  function(player, socket){
     player.closet.closet.parts.tiles.head.img = 'human_action_head_farmer_hat_straw_cloth';
 });
 /* /Closet */

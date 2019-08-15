@@ -53,8 +53,19 @@ function InitializeKeyboard() {
       else { return false; }
     };
 
+    var areSpecialPotion = function(value) {
+      switch (value) {
+        case 'invisible_potion_small':
+          if(Player.list[SELF_ID].location.status==='INVISIBLE') return true;
+          return false;
+      }
+      return false;
+    }
+
     var quickUseProcess = function(value) {
-      if(areUsingCloth(value)) { SOCKET.emit('wearingCloth', value); }
+      if(value===undefined) { return; }
+      else if(areUsingCloth(value)) { SOCKET.emit('wearingCloth', value); }
+      else if(areSpecialPotion(value)) { console.log('already'); return; }
       else { SOCKET.emit('quickUseItem', value); }
     }
 
@@ -66,16 +77,16 @@ function InitializeKeyboard() {
         if (e.keyCode === KEY_UP|| e.keyCode === KEY_W) { key.UP = true; }
         if (e.keyCode === KEY_DOWN|| e.keyCode === KEY_S) { key.DOWN = true; }
 
-        if (e.keyCode === KEY_1) {SOCKET.emit('quickUseItem', quickUseProcess($('div[id~=quick-bar-container]').find('li[id~=quick-bar-slot-0]').children('input').val()));}
-        if (e.keyCode === KEY_2) {SOCKET.emit('quickUseItem', quickUseProcess($('div[id~=quick-bar-container]').find('li[id~=quick-bar-slot-1]').children('input').val()));}
-        if (e.keyCode === KEY_3) {SOCKET.emit('quickUseItem', quickUseProcess($('div[id~=quick-bar-container]').find('li[id~=quick-bar-slot-2]').children('input').val()));}
-        if (e.keyCode === KEY_4) {SOCKET.emit('quickUseItem', quickUseProcess($('div[id~=quick-bar-container]').find('li[id~=quick-bar-slot-3]').children('input').val()));}
-        if (e.keyCode === KEY_5) {SOCKET.emit('quickUseItem', quickUseProcess($('div[id~=quick-bar-container]').find('li[id~=quick-bar-slot-4]').children('input').val()));}
-        if (e.keyCode === KEY_6) {SOCKET.emit('quickUseItem', quickUseProcess($('div[id~=quick-bar-container]').find('li[id~=quick-bar-slot-5]').children('input').val()));}
-        if (e.keyCode === KEY_7) {SOCKET.emit('quickUseItem', quickUseProcess($('div[id~=quick-bar-container]').find('li[id~=quick-bar-slot-6]').children('input').val()));}
-        if (e.keyCode === KEY_8) {SOCKET.emit('quickUseItem', quickUseProcess($('div[id~=quick-bar-container]').find('li[id~=quick-bar-slot-7]').children('input').val()));}
-        if (e.keyCode === KEY_9) {SOCKET.emit('quickUseItem', quickUseProcess($('div[id~=quick-bar-container]').find('li[id~=quick-bar-slot-8]').children('input').val()));}
-        if (e.keyCode === KEY_0) {SOCKET.emit('quickUseItem', quickUseProcess($('div[id~=quick-bar-container]').find('li[id~=quick-bar-slot-9]').children('input').val()));}
+        if (e.keyCode === KEY_1) quickUseProcess($('div[id~=quick-bar-container]').find('li[id~=quick-bar-slot-0]').children('input').val());
+        if (e.keyCode === KEY_2) quickUseProcess($('div[id~=quick-bar-container]').find('li[id~=quick-bar-slot-1]').children('input').val());
+        if (e.keyCode === KEY_3) quickUseProcess($('div[id~=quick-bar-container]').find('li[id~=quick-bar-slot-2]').children('input').val());
+        if (e.keyCode === KEY_4) quickUseProcess($('div[id~=quick-bar-container]').find('li[id~=quick-bar-slot-3]').children('input').val());
+        if (e.keyCode === KEY_5) quickUseProcess($('div[id~=quick-bar-container]').find('li[id~=quick-bar-slot-4]').children('input').val());
+        if (e.keyCode === KEY_6) quickUseProcess($('div[id~=quick-bar-container]').find('li[id~=quick-bar-slot-5]').children('input').val());
+        if (e.keyCode === KEY_7) quickUseProcess($('div[id~=quick-bar-container]').find('li[id~=quick-bar-slot-6]').children('input').val());
+        if (e.keyCode === KEY_8) quickUseProcess($('div[id~=quick-bar-container]').find('li[id~=quick-bar-slot-7]').children('input').val());
+        if (e.keyCode === KEY_9) quickUseProcess($('div[id~=quick-bar-container]').find('li[id~=quick-bar-slot-8]').children('input').val());
+        if (e.keyCode === KEY_0) quickUseProcess($('div[id~=quick-bar-container]').find('li[id~=quick-bar-slot-9]').children('input').val());
 
         SOCKET.emit('movement', key);
     });

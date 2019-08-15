@@ -4,6 +4,7 @@ Mouse = function() {
   // PRESS_ID 생각해 볼것
     this.attacking = false;
     this.angle = false;
+    return this;
 };
 window.mouse = null;
 
@@ -12,6 +13,7 @@ function InitializeMouse() {
 
   document.onmousedown = function(event) {
     mouse.attacking = true;
+
     SOCKET.emit('attacking', mouse);
   }
   document.onmouseup = function(event) {

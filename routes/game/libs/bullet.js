@@ -6,8 +6,8 @@ Bullet = function(param) {
 	//파라미터로 전달받은 불릿 객체 방향각 설정
 	self.angle = param.angle;
   /* 객체 X, Y축 이동 속도 설정 */
-  self.spdX = Math.cos(param.angle/180 * Math.PI) * 10;
-  self.spdY = Math.sin(param.angle/180 * Math.PI) * 10;
+  self.spdX = Math.cos(param.angle/180 * Math.PI) * 30;
+  self.spdY = Math.sin(param.angle/180 * Math.PI) * 30;
   //불릿 객체를 생성할 플레이어 객체를 파라미터로 넘겨받아 등록
   self.parent = param.parent;
   //불릿 생성 후, 일정 시간뒤 제거하기까지의 타이머 설정
@@ -29,6 +29,7 @@ Bullet = function(param) {
       self.toRemove = true;
     }
     super_update();
+
     /* 플레이어 객체에 접근시 처리를 위한 과정 */
     for(var i in Player.list){
 			var p = Player.list[i];
@@ -52,6 +53,7 @@ Bullet = function(param) {
           Objects.createObjectHasDiedItems(p);
 
 					p.hp = p.hpMax;
+          p.energy = p.energyMax;
           p.score = 0;
 					p.location.x = Math.random() * 500;
 					p.location.y = Math.random() * 500;

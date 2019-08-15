@@ -148,15 +148,6 @@ FieldRenderer = function(param) {
 					field.width,
 					field.height);
       };
-
-      this.context.strokeStyle = "#0033FF";    // 선에 색상 지정하기
-      this.context.beginPath();
-      this.context.moveTo(0, HEIGHT/2)
-      this.context.lineTo(WIDTH, HEIGHT/2);
-      this.context.moveTo(WIDTH/2, 0);
-      this.context.lineTo(WIDTH/2, HEIGHT);
-      this.context.stroke();
-      this.context.closePath();
     },
 
     resize:function(event) {

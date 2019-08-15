@@ -6,7 +6,7 @@ Player = function(param) {
   //마우스 포인터 기점 방향각 설정
   self.mouseAngle = 0;
   //객체 최대 이동속도 설정
-  self.maxSpd = 16;
+  self.maxSpd = 8;
   //객체 체력 및 최대 체력 설정
   self.hp = 10;
   self.hpMax = 10;
@@ -16,6 +16,7 @@ Player = function(param) {
   self.score = 0;
   //게임 내 객체 인벤토리 설정
   self.inventory = new Inventory(self.id);
+
   self.closet = new Closet(self.id);
   self.weapon = new Weapon(self.id);
 
@@ -33,6 +34,7 @@ Player = function(param) {
   };
 
   self.attacking = false;
+  self.shootRifleCount = 0;
 
   /* 플레이어 객체 상태 업데이트
      중복 상태 업데이트는 엔티티 객체의 업데이트 메서드를 상속받아 이용
@@ -45,13 +47,19 @@ Player = function(param) {
     super_update();
     //공격 이벤트 활성화 처리
     if(self.attacking) {
-      if(self.energy!==0) {
-        self.energy--;
-        self.shootBullet(self.mouseAngle);
+      if(self.shootRifleCount++<3){
+        if(self.energy!==0) {
+          self.energy--;
+          self.shootBullet(self.mouseAngle);
+        }
+        else {
+          return;
+        }
       }
-      else {
-        return;
-      }
+    }
+    else {
+      self.shootRifleCount=0;
+      return;
     }
   }
 
@@ -77,7 +85,7 @@ Player = function(param) {
   self.updateSpd = function() {
 
     if(self.movement.RIGHT || self.movement.LEFT || self.movement.DOWN || self.movement.UP) {
-      self.location.status = 'MOVE';
+      if(!(self.location.status==='INVISIBLE')) self.location.status = 'MOVE';
     }
 
     /* X축 이동 처리 */
@@ -109,7 +117,7 @@ Player = function(param) {
       self.spdY = 0;
     }
     if(!(self.movement.RIGHT || self.movement.LEFT || self.movement.DOWN || self.movement.UP)
-      && self.location.status!=='INTERACT') {
+      && self.location.status!=='INTERACT' && self.location.status!=='INVISIBLE') {
       self.location.status = 'HOLD';
     }
   }
@@ -187,10 +195,11 @@ Player.onConnect = function(socket, username) {
 
   /* */
   socket.on('quickUseItem', function(data) {
+    if(data===undefined) { console.log(data); }
     for(var index=0; index<player.inventory.items.length; index++) {
-      if(player.inventory.items[index]===undefined) {console.log(data);continue;}
+      if(player.inventory.items[index]===undefined) {continue;}
       if(player.inventory.items[index].id === data) {
-        player.inventory.items[index].event(player);
+        player.inventory.items[index].event(player, socket);
         if(--player.inventory.items[index].amount===0) {
           delete player.inventory.items[index];
         }
@@ -201,7 +210,7 @@ Player.onConnect = function(socket, username) {
 
   socket.on('wearingCloth', function(data) {
     for(var index=0; index<player.inventory.items.length; index++) {
-      if(player.inventory.items[index]===undefined) {console.log(data);continue;}
+      if(player.inventory.items[index]===undefined) {continue;}
       if(player.inventory.items[index].id === data) {
         player.inventory.items[index].event(player);
         if(--player.inventory.items[index].amount===0) {
@@ -213,6 +222,7 @@ Player.onConnect = function(socket, username) {
   });
 
   socket.on('addItem', function(data) {
+    if(data===undefined) return;
     let item = data.item;
 
     player.inventory.addItem(item);
@@ -230,9 +240,12 @@ Player.onConnect = function(socket, username) {
     else {
       player.inventory.items[data.toBeMovedIndex] = toMoveItem;
       player.inventory.items[data.toMoveIndex] = toBeMovedItem;
-      console.log(player.inventory.items);
     }
     player.socket.emit('updatingUserQuickBar', player.inventory);
+  });
+
+  socket.on('invisibleEND', function() {
+    player.location.status = 'HOLD';
   })
   /* / */
 
